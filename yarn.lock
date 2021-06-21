@@ -236,6 +236,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/history@npm:*":
+  version: 4.7.8
+  resolution: "@types/history@npm:4.7.8"
+  checksum: 9c867532afd80f72a7101a5bb3c10c1ad7cc8c2c14e92fdbc54d5fed0ef8cdb6060c0f261a39884e243424636c6ff85d8aaffb984e2edaac348d2f216f9eedeb
+  languageName: node
+  linkType: hard
+
 "@types/hoist-non-react-statics@npm:^3.3.0":
   version: 3.3.1
   resolution: "@types/hoist-non-react-statics@npm:3.3.1"
@@ -327,6 +334,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-lazy-load-image-component@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@types/react-lazy-load-image-component@npm:1.5.1"
+  dependencies:
+    "@types/react": "*"
+    csstype: ^3.0.2
+  checksum: 84865bf2ec6217d01d8cd9a0270259cf594f7651f536a2ab596481985bf98e1e9e2f5560e808dc476ef9b64c2da3c510feb24ff0d7c8d2ff3ae5d639529ca00f
+  languageName: node
+  linkType: hard
+
 "@types/react-redux@npm:^7.1.16":
   version: 7.1.16
   resolution: "@types/react-redux@npm:7.1.16"
@@ -336,6 +353,27 @@ __metadata:
     hoist-non-react-statics: ^3.3.0
     redux: ^4.0.0
   checksum: c07ee677be781df70aa6209d4152373ec470f6c99b50051e302add8b57d49e89322250959bf9e192738cccc5dbbe05c77514339a45b46ec973c8326227408f26
+  languageName: node
+  linkType: hard
+
+"@types/react-router-dom@npm:^5.1.7":
+  version: 5.1.7
+  resolution: "@types/react-router-dom@npm:5.1.7"
+  dependencies:
+    "@types/history": "*"
+    "@types/react": "*"
+    "@types/react-router": "*"
+  checksum: ad40f55557bb7cd8d19d783c1d7dbca85e8874e03cced37e464f74f9f0a588a9a7e411de74da362d1a5c5bf80f7aaca78fe9a66d26741e47c5c06e49a62d1229
+  languageName: node
+  linkType: hard
+
+"@types/react-router@npm:*":
+  version: 5.1.15
+  resolution: "@types/react-router@npm:5.1.15"
+  dependencies:
+    "@types/history": "*"
+    "@types/react": "*"
+  checksum: b27c4a0b0fea6e31edbcbf1b1c2590575ad454016701997df48ffd26c08f7c18fab5433e9dc8b3f3131c13aac1a8eacb2fd21f77c03c1b1550cabf4aeee127a2
   languageName: node
   linkType: hard
 
@@ -4804,6 +4842,20 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"lodash.debounce@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "lodash.debounce@npm:4.0.8"
+  checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
+  languageName: node
+  linkType: hard
+
+"lodash.throttle@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.throttle@npm:4.1.1"
+  checksum: 129c0a28cee48b348aef146f638ef8a8b197944d4e9ec26c1890c19d9bf5a5690fe11b655c77a4551268819b32d27f4206343e30c78961f60b561b8608c8c805
+  languageName: node
+  linkType: hard
+
 "lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.20":
   version: 4.17.20
   resolution: "lodash@npm:4.17.20"
@@ -6175,7 +6227,9 @@ fsevents@~2.3.1:
   dependencies:
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
+    "@types/react-lazy-load-image-component": ^1.5.1
     "@types/react-redux": ^7.1.16
+    "@types/react-router-dom": ^5.1.7
     "@typescript-eslint/eslint-plugin": ^4.22.0
     "@typescript-eslint/parser": ^4.22.0
     "@yarnpkg/pnpify": ^3.0.0-rc.3
@@ -6195,6 +6249,8 @@ fsevents@~2.3.1:
     mini-css-extract-plugin: ^1.5.0
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-icons: ^4.2.0
+    react-lazy-load-image-component: ^1.5.1
     react-redux: ^7.2.4
     react-router-dom: ^5.2.0
     redux: ^4.1.0
@@ -6223,10 +6279,32 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"react-icons@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "react-icons@npm:4.2.0"
+  peerDependencies:
+    react: "*"
+  checksum: 2b42d9b0ac85a57f8de28819b5f452b2c851f4caec09a855596d47557b775a434802fce1f3dc3811eebf46cf4d7c79fa4650330d5772345d6839f86c83afc01d
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-lazy-load-image-component@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "react-lazy-load-image-component@npm:1.5.1"
+  dependencies:
+    lodash.debounce: ^4.0.8
+    lodash.throttle: ^4.1.1
+  peerDependencies:
+    react: ^15.x.x || ^16.x.x || ^17.x.x
+    react-dom: ^15.x.x || ^16.x.x || ^17.x.x
+  checksum: 7bdc208918d12dc6c5c64e5070d030fd0f4659b7a5b25522193c03986c7db2f6fd7c297a2003c59b9d6def7bf1cdc8fa79cdfd47165b6b1420fe2bd4f2bf868d
   languageName: node
   linkType: hard
 

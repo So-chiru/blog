@@ -1,0 +1,97 @@
+@import './colors.scss';
+
+$profile-background-gradient: linear-gradient(
+  to bottom right,
+  hsl(207.89, 86.94%, 51.96%) 0%,
+  hsl(207.62, 86.81%, 52.08%) 6.1%,
+  hsl(206.86, 86.46%, 52.41%) 12%,
+  hsl(205.67, 85.92%, 52.86%) 17.9%,
+  hsl(204.1, 85.23%, 53.38%) 23.7%,
+  hsl(202.24, 84.43%, 53.92%) 29.5%,
+  hsl(200.16, 83.53%, 54.45%) 35.3%,
+  hsl(197.94, 82.58%, 54.95%) 41.3%,
+  hsl(195.65, 81.61%, 55.41%) 47.5%,
+  hsl(193.37, 80.66%, 55.82%) 53.9%,
+  hsl(191.2, 79.75%, 56.18%) 60.5%,
+  hsl(189.21, 78.92%, 56.48%) 67.5%,
+  hsl(187.5, 78.21%, 56.73%) 74.9%,
+  hsl(186.16, 77.66%, 56.91%) 82.8%,
+  hsl(185.28, 77.3%, 57.02%) 91.1%,
+  hsl(184.97, 77.17%, 57.06%) 100%
+);
+
+.short-biography,
+.long-biography {
+  display: flex;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    margin: 0;
+  }
+
+  .text {
+    letter-spacing: -1px;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+
+    .description {
+      color: $element-text;
+    }
+  }
+
+  .text-wrapper {
+    display: block;
+    margin: auto;
+  }
+
+  .profile-icon {
+    margin-left: auto;
+
+    & > * {
+      margin: auto;
+    }
+  }
+}
+
+.long-biography {
+  .title {
+    background: hsl(207.89, 86.94%, 51.96%);
+    background: $profile-background-gradient;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .description {
+    margin-bottom: 32px;
+  }
+
+  .contact-links {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+
+    .link {
+      display: flex;
+
+      .text {
+        margin: auto auto auto 5px;
+      }
+    }
+
+    .icon {
+      display: flex;
+
+      svg {
+        margin: auto;
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+}

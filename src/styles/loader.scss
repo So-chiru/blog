@@ -1,0 +1,33 @@
+@import './animations.scss';
+
+$bar-height: 6px;
+
+.cloud-loader {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+
+  svg {
+    width: 75px;
+    height: 40px;
+  }
+
+  .progress-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateX(calc(-100% + 100% * var(--progress, 0)));
+    height: $bar-height;
+    background: rgb(15, 145, 231);
+
+    transition: $quartic-transform;
+
+    &.hide {
+      transition: $quartic-all-long;
+      transform: translateX(calc(-100% + 100% * var(--progress, 0)))
+        translateY(#{$bar-height});
+    }
+  }
+}

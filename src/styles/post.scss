@@ -1,18 +1,18 @@
-@import './size.scss';
-
-body,
-html {
+.post-error {
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: -1px;
   font-family: 'Inter', 'Noto Sans CJK KR', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
     sans-serif;
-  margin: 0;
-}
 
-.app {
-  max-width: $page-width;
-  margin: auto;
-
-  @media screen and (max-width: $tablet-landscape-width) {
-    width: 96vw;
+  .icon {
+    font-size: 64px;
   }
+
+  .mute {
+    opacity: 0.4;
+  }
+
+  display: block;
 }

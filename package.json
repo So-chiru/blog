@@ -7,7 +7,9 @@
   "devDependencies": {
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "@types/react-lazy-load-image-component": "^1.5.1",
     "@types/react-redux": "^7.1.16",
+    "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "@yarnpkg/pnpify": "^3.0.0-rc.3",
@@ -25,6 +27,8 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.5.0",
+    "react-icons": "^4.2.0",
+    "react-lazy-load-image-component": "^1.5.1",
     "sass": "^1.32.11",
     "sass-loader": "^11.0.1",
     "speed-measure-webpack-plugin": "^1.5.0",
@@ -35,8 +39,8 @@
   },
   "scripts": {
     "start": "yarn dev",
-    "dev": "webpack serve --mode=development --hot",
-    "build": "webpack --mode=production",
+    "dev": "webpack serve --mode=development --content-base src --inline --hot --env API_SERVER=http://localhost:8787/",
+    "build": "webpack --mode=production --env API_SERVER=http://blog-api.sochiru.pw/",
     "lint": "eslint -c .eslintrc.json './src/**/*.{ts,tsx,js,jsx}'",
     "lint-fix": "eslint --fix -c .eslintrc.json './src/**/*.{ts,tsx,js,jsx}'"
   },

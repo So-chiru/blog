@@ -1,0 +1,15 @@
+.spacer-container {
+  & > * {
+    margin: var(--h, auto) var(--w, auto);
+  }
+
+  &[data-flex] {
+    display: flex;
+  }
+
+  &[data-height='true'] {
+    & > * {
+      margin: var(--ht, auto) var(--w, auto) var(--hb, auto) var(--w, auto);
+    }
+  }
+}

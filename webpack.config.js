@@ -17,6 +17,7 @@ module.exports = (_, argv) => {
 
   const options = {
     entry: path.resolve('src', 'index.tsx'),
+    target: devMode ? "web" : "browserslist",
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
       alias: {
@@ -37,7 +38,7 @@ module.exports = (_, argv) => {
             loader: 'ts-loader',
             options: {
               configFile: path.resolve(__dirname, './tsconfig.json'),
-              transpileOnly: true,
+              // transpileOnly: true,
               experimentalWatchApi: true
             }
           }
@@ -58,9 +59,9 @@ module.exports = (_, argv) => {
         template: './views/index.html',
         filename: 'index.html'
       }),
-      // new DefinePlugin({
-      //   'process.env.ENV_VALUE': JSON.stringify(process.env.ENV_VALUE)
-      // }),
+      new DefinePlugin({
+        'API_SERVER': JSON.stringify(argv.env.API_SERVER)
+      }),
       // new CopyWebpackPlugin({
       //   patterns: [
       //     {
@@ -81,9 +82,11 @@ module.exports = (_, argv) => {
   if (devMode) {
     options.devtool = 'source-map'
     options.devServer = {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: './dist/',
+      watchContentBase: true,
       compress: true,
       port: 8080,
+      hot: true,
       historyApiFallback: true
     }
 

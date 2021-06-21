@@ -1,0 +1,6 @@
+$ease-out-all: 0.23s all cubic-bezier(.75,.15,.3,.8);
+$ease-out-opacity: 0.23s opacity cubic-bezier(.75,.15,.3,.8);
+$ease-out-transform: 0.23s transform cubic-bezier(.75,.15,.3,.8);
+
+$quartic-transform: 230ms transform cubic-bezier(0.19, 1, 0.22, 1);
+$quartic-all-long: 1s all cubic-bezier(0.05, 0.5, 0.15, 0.9);
