@@ -28,6 +28,29 @@
     'hero-image hero-image'
     'brief-data meta-data';
 
+  &.in-post {
+    grid-template-columns: 1.3fr;
+    grid-template-rows: 1.5fr 0.3fr 0.3fr;
+    grid-template-areas:
+      'hero-image'
+      'brief-data'
+      'meta-data';
+    width: 100%;
+
+    .meta-data {
+      margin-left: unset;
+      margin-right: auto;
+    }
+
+    cursor: default;
+    gap: 12px;
+
+    .title {
+      font-size: 26px;
+      margin-top: 32px;
+    }
+  }
+
   .hero-image {
     position: relative;
     width: 100%;

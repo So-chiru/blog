@@ -8,6 +8,10 @@ import { listsResponseParse } from '@/utils/parse'
 import { APILoadState } from 'api'
 
 import { ErrorComponent } from '@/components/elements/Error'
+import { useDispatch } from 'react-redux'
+
+import loaderActions from '@/store/loader/actions'
+import { PostListData } from '@/@types/posts'
 
 interface PostListContainerProps {
   server: string
@@ -21,8 +25,11 @@ const PostListContainer = ({ server }: PostListContainerProps) => {
   const [error, setError] = useState<Error>()
   const [data, setData] = useState<PostListData>()
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
     setLoadState(APILoadState.Loading)
+    dispatch(loaderActions.start())
 
     fetch(server)
       .then(v => {
@@ -36,10 +43,12 @@ const PostListContainer = ({ server }: PostListContainerProps) => {
         const parsed = listsResponseParse(v)
 
         setData(parsed)
+        dispatch(loaderActions.done())
       })
       .catch(e => {
         setError(e)
         setLoadState(APILoadState.Error)
+        dispatch(loaderActions.failed(e))
       })
   }, [])
 

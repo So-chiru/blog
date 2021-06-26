@@ -1,6 +1,7 @@
-export const enum LOAD_STATE {
-  STARTED,
-  LOADING,
-  LOADED,
-  FAILED
+export const enum LoaderState {
+  Ready,
+  Started,
+  Loading,
+  Loaded,
+  Failed
 }

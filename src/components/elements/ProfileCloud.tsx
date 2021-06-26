@@ -1,4 +1,4 @@
-import { LOAD_STATE } from '@/@types/loader'
+import { LoaderState } from '@/@types/loader'
 import '@/styles/cloud.scss'
 import { concatClass } from '@/utils/component'
 
@@ -9,7 +9,8 @@ interface ProfileCloudProps {
   animation?: boolean
   plate?: boolean
   noFace?: boolean
-  [index: string]: any
+  state?: LoaderState
+  [index: string]: unknown
 }
 
 const ProfileCloud = ({
@@ -19,10 +20,9 @@ const ProfileCloud = ({
   animation,
   plate,
   noFace,
+  state,
   ...props
 }: ProfileCloudProps) => {
-  const state: LOAD_STATE = props.state
-
   return (
     <div
       className={concatClass('sochiru-cloud-wrapper', animation && 'animation')}

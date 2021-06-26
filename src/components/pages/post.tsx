@@ -6,23 +6,7 @@ import { SpacerComponent } from '../elements/Spacer'
 
 import '@/styles/post.scss'
 import { PostViewContainer } from '../elements/PostView/container'
-
-interface PostErrorComponentProps {
-  error?: Error
-}
-
-const PostErrorComponent = ({ error }: PostErrorComponentProps) => {
-  return (
-    <div className='post-error'>
-      <h1 className='icon'>🥺</h1>
-      <h3>오오오오오오오오류</h3>
-      <p>
-        게시글 목록을 가져오지 못했어요.{' '}
-        <span className='mute'>{error && error.message}</span>
-      </p>
-    </div>
-  )
-}
+import { ErrorComponent } from '../elements/Error'
 
 const PostPage = () => {
   const route = useRouteMatch<{
@@ -41,9 +25,10 @@ const PostPage = () => {
         ></PostViewContainer>
       ) : (
         <SpacerComponent flex={true} h={120}>
-          <PostErrorComponent
-            error={new Error('게시글이 존재하지 않아요.')}
-          ></PostErrorComponent>
+          <ErrorComponent
+            type={'게시글'}
+            error={new Error('게시글 URL이 올바르지 않아요.')}
+          ></ErrorComponent>
         </SpacerComponent>
       )}
     </div>

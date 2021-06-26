@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom'
 
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/opacity.css'
+import { BlogPost, Color, PostListData } from '@/@types/posts'
+import { concatClass } from '@/utils/component'
 
 interface PostListComponentProps {
   data: PostListData
@@ -28,7 +30,7 @@ const tagColor: Record<Color, string | undefined> = {
   red: '#ff6c6c'
 }
 
-const TagComponent = ({ color, text }: TagComponentProps) => {
+export const TagComponent = ({ color, text }: TagComponentProps) => {
   return (
     <div
       className='post-tag'
@@ -42,53 +44,74 @@ const TagComponent = ({ color, text }: TagComponentProps) => {
   )
 }
 
+interface PostBriefComponentProps {
+  data: BlogPost
+  move?: (title: string, id: string) => void
+  inPost?: boolean
+}
+
+export const PostBriefComponent = ({
+  data,
+  move,
+  inPost
+}: PostBriefComponentProps) => {
+  return (
+    <div
+      data-id={data.id}
+      className={concatClass('post', inPost && 'in-post')}
+      tabIndex={0}
+      role='link'
+      onClick={() => move && move(data.title, data.id)}
+      onKeyPress={ev => ev.key === 'Enter' && move && move(data.title, data.id)}
+    >
+      <div className='hero-image'>
+        {data.background && (
+          <LazyLoadImage
+            src={data.background}
+            effect={'opacity'}
+          ></LazyLoadImage>
+        )}
+      </div>
+      <div className='brief-data'>
+        <h3 className='title'>{data.title}</h3>
+        {!inPost && <p className='description'>{data.description}</p>}
+      </div>
+      <div className='meta-data'>
+        {data.tags &&
+          data.tags.map(tag => {
+            return (
+              <TagComponent
+                key={data.id + '.' + tag.id}
+                color={tag.color}
+                text={tag.name}
+              ></TagComponent>
+            )
+          })}
+        {data.created && (
+          <TagComponent
+            text={localizeDate(new Date(data.created))}
+          ></TagComponent>
+        )}
+      </div>
+    </div>
+  )
+}
+
 const PostListComponent = ({ data }: PostListComponentProps) => {
   const history = useHistory()
 
   const goPost = (title: string, id: string) => {
-    history.push('/post/' + textLinkify(title) + id.replace(/-/g, ''))
+    history.push('/blog/' + textLinkify(title) + id.replace(/-/g, ''))
   }
 
   return (
     <div className='post-list'>
       {...data.posts.map(v => (
-        <div
+        <PostBriefComponent
           key={v.id}
-          data-id={v.id}
-          className='post'
-          tabIndex={0}
-          role='link'
-          onClick={() => goPost(v.title, v.id)}
-          onKeyPress={ev => ev.key === 'Enter' && goPost(v.title, v.id)}
-        >
-          <div className='hero-image'>
-            {v.background && (
-              <LazyLoadImage
-                src={v.background}
-                effect={'opacity'}
-              ></LazyLoadImage>
-            )}
-          </div>
-          <div className='brief-data'>
-            <h3 className='title'>{v.title}</h3>
-            <p className='description'>{v.description}</p>
-          </div>
-          <div className='meta-data'>
-            {v.tags &&
-              v.tags.map(tag => {
-                return (
-                  <TagComponent
-                    key={v.id + '.' + tag.id}
-                    color={tag.color}
-                    text={tag.name}
-                  ></TagComponent>
-                )
-              })}
-            <TagComponent
-              text={localizeDate(new Date(v.created))}
-            ></TagComponent>
-          </div>
-        </div>
+          data={v}
+          move={goPost}
+        ></PostBriefComponent>
       ))}
     </div>
   )

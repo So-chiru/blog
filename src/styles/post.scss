@@ -16,3 +16,26 @@
 
   display: block;
 }
+
+.post-view-component {
+  letter-spacing: -0.2px;
+  line-height: 166%;
+  margin-bottom: 10vh;
+
+  h1, h2, h3 {
+    margin-top: 2em;
+  }
+
+  .unsupported {
+    padding: 10px 16px;
+    background: #f0ebe5;
+    border-radius: 16px;
+  }
+
+  .bullted-list-item {
+    list-style-type: circle;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}

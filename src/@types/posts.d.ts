@@ -1,3 +1,5 @@
+import { Block } from '@/lib/notion/api-types'
+
 type Color =
   | 'default'
   | 'gray'
@@ -14,14 +16,18 @@ declare interface BlogPost {
   id: string
   title: string
   description?: string
-  created: string
-  edited: string
+  created?: string
+  edited?: string
   tags?: {
     name: string
     id: string
     color: Color
   }[]
   background?: string
+}
+
+declare interface BlogPostWithBlocks extends BlogPost {
+  blocks: Block[]
 }
 
 declare interface PostListData {

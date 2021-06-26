@@ -15,10 +15,10 @@ const App = () => {
         <Route path='/' exact>
           <AboutPage></AboutPage>
         </Route>
-        <Route path='/blog'>
+        <Route path='/blog' exact>
           <BlogPage></BlogPage>
         </Route>
-        <Route path='/post/:postId'>
+        <Route path='/blog/:postId'>
           <PostPage></PostPage>
         </Route>
       </Switch>

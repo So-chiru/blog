@@ -8,6 +8,7 @@ $bar-height: 6px;
   left: 0;
   width: 100%;
   height: 65px;
+  pointer-events: none;
 
   svg {
     width: 75px;
@@ -21,6 +22,10 @@ $bar-height: 6px;
     transform: translateX(calc(-100% + 100% * var(--progress, 0)));
     height: $bar-height;
     background: rgb(15, 145, 231);
+
+    &[data-state="4"] {
+      background: rgb(231, 22, 15);
+    }
 
     transition: $quartic-transform;
 
