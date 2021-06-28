@@ -1,4 +1,5 @@
 @import './colors.scss';
+@import './size.scss';
 
 $profile-background-gradient: linear-gradient(
   to bottom right,
@@ -43,9 +44,29 @@ $profile-background-gradient: linear-gradient(
     }
   }
 
+  @media screen and (max-width: $mobile-width) {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      'profile-icon'
+      'text-wrapper';
+
+    .title {
+      font-size: 6vmin;
+    }
+
+    .description {
+      font-size: 4.5vmin;
+    }
+  }
+
   .text-wrapper {
     display: block;
     margin: auto;
+    grid-area: text-wrapper;
   }
 
   .profile-icon {
@@ -54,6 +75,14 @@ $profile-background-gradient: linear-gradient(
     & > * {
       margin: auto;
     }
+
+    grid-area: profile-icon;
+  }
+}
+
+.short-biography {
+  .text-wrapper {
+    margin-top: -5px;
   }
 }
 
@@ -68,6 +97,12 @@ $profile-background-gradient: linear-gradient(
 
   .description {
     margin-bottom: 32px;
+  }
+
+  @media screen and (max-width: $mobile-width) {
+    .profile-icon {
+      margin-top: 2vh;
+    }
   }
 
   .contact-links {
@@ -89,8 +124,21 @@ $profile-background-gradient: linear-gradient(
 
       svg {
         margin: auto;
-        width: 26px;
-        height: 26px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    @media screen and (max-width: $mobile-width) {
+      .icon {
+        svg {
+          width: 5vmin;
+          height: 5vmin;
+        }
+      }
+
+      .text {
+        font-size: 4.5vmin;
       }
     }
   }

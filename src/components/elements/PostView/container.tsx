@@ -10,6 +10,7 @@ import loaderActions from '@/store/loader/actions'
 import { PostBriefComponent } from '../PostList/component'
 import { BlogPostWithBlocks } from 'posts'
 import { extractPostTitleURL } from '@/utils/parse'
+import CommentContainer from '../Comment'
 
 interface PostViewContainerProps {
   id: string
@@ -87,6 +88,9 @@ export const PostViewContainer = ({ id, server }: PostViewContainerProps) => {
         </SpacerComponent>
       )}
       <PostViewComponent blocks={data && data.blocks}></PostViewComponent>
+      <SpacerComponent ht={32} hb={128} w={0} flex={true}>
+        <CommentContainer></CommentContainer>
+      </SpacerComponent>
     </>
   )
 }

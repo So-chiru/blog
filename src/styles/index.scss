@@ -1,5 +1,7 @@
 @import './size.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@300;500;700&display=swap');
+
 body,
 html {
   font-family: 'Inter', 'Noto Sans CJK KR', -apple-system, BlinkMacSystemFont,
@@ -13,6 +15,21 @@ html {
   margin: auto;
 
   @media screen and (max-width: $tablet-landscape-width) {
-    width: 96vw;
+    width: 96%;
   }
+}
+
+.page {
+  @media screen and (max-width: $tablet-width) {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10vh;
+  }
+
+  margin-bottom: 10vh;
+}
+
+.short-biography,
+.long-biography {
+  width: 100%;
 }

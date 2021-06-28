@@ -15,6 +15,7 @@ interface PostListComponentProps {
 interface TagComponentProps {
   color?: Color
   text: string
+  id?: string
 }
 
 const tagColor: Record<Color, string | undefined> = {
@@ -30,10 +31,11 @@ const tagColor: Record<Color, string | undefined> = {
   red: '#ff6c6c'
 }
 
-export const TagComponent = ({ color, text }: TagComponentProps) => {
+export const TagComponent = ({ color, text, id }: TagComponentProps) => {
   return (
     <div
       className='post-tag'
+      data-id={id}
       style={{
         ['--color' as string]:
           color && tagColor[color] ? tagColor[color] : color
@@ -89,6 +91,7 @@ export const PostBriefComponent = ({
           })}
         {data.created && (
           <TagComponent
+            id='date'
             text={localizeDate(new Date(data.created))}
           ></TagComponent>
         )}

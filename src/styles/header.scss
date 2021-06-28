@@ -5,6 +5,7 @@
   transition-duration: 0.23s;
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  width: 100%;
 
   z-index: 1000;
 
@@ -30,21 +31,21 @@
     background: linear-gradient(
       to bottom,
       hsl(0, 0%, 100%) 0%,
-      hsla(0, 0%, 100%, 0.983) 12.8%,
-      hsla(0, 0%, 100%, 0.956) 22.9%,
-      hsla(0, 0%, 100%, 0.922) 30.6%,
-      hsla(0, 0%, 100%, 0.881) 36.3%,
-      hsla(0, 0%, 100%, 0.834) 40.6%,
-      hsla(0, 0%, 100%, 0.782) 43.8%,
-      hsla(0, 0%, 100%, 0.728) 46.5%,
-      hsla(0, 0%, 100%, 0.672) 49%,
-      hsla(0, 0%, 100%, 0.615) 51.8%,
-      hsla(0, 0%, 100%, 0.559) 55.4%,
-      hsla(0, 0%, 100%, 0.504) 60.2%,
-      hsla(0, 0%, 100%, 0.453) 66.6%,
-      hsla(0, 0%, 100%, 0.406) 75%,
-      hsla(0, 0%, 100%, 0.365) 86%,
-      hsla(0, 0%, 100%, 0.33) 100%
+      hsla(0, 0%, 100%, 0.969) 13.5%,
+      hsla(0, 0%, 100%, 0.921) 24.2%,
+      hsla(0, 0%, 100%, 0.859) 32.5%,
+      hsla(0, 0%, 100%, 0.785) 38.9%,
+      hsla(0, 0%, 100%, 0.703) 43.7%,
+      hsla(0, 0%, 100%, 0.615) 47.4%,
+      hsla(0, 0%, 100%, 0.524) 50.5%,
+      hsla(0, 0%, 100%, 0.432) 53.3%,
+      hsla(0, 0%, 100%, 0.342) 56.2%,
+      hsla(0, 0%, 100%, 0.257) 59.6%,
+      hsla(0, 0%, 100%, 0.18) 64.1%,
+      hsla(0, 0%, 100%, 0.113) 69.9%,
+      hsla(0, 0%, 100%, 0.059) 77.6%,
+      hsla(0, 0%, 100%, 0.02) 87.5%,
+      hsla(0, 0%, 100%, 0) 100%
     );
   }
 
@@ -97,13 +98,21 @@
       letter-spacing: -0.33px;
       text-decoration: none;
 
+      @media screen and(max-width: $mobile-width) {
+        font-size: 4.5vmin;
+      }
+
+      &:first-child {
+        margin-left: 10px;
+      }
+
       &:hover {
         opacity: 0.8;
       }
 
       color: $text-inactive;
 
-      &[data-active="true"] {
+      &[data-active='true'] {
         color: #000;
         cursor: default;
 
@@ -112,14 +121,14 @@
         }
 
         &::before {
-          content: " ";
+          content: ' ';
           position: absolute;
           width: 130%;
           height: 70%;
           top: 30%;
           left: -15%;
           z-index: -1;
-          background: #D0EFFD;
+          background: #d0effd;
         }
       }
     }

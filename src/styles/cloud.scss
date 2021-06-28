@@ -1,4 +1,5 @@
 @import './animations.scss';
+@import './size.scss';
 
 .sochiru-cloud-wrapper {
   position: relative;
@@ -31,6 +32,14 @@
 
   &.big {
     width: 160px;
+  }
+
+  @media screen and (max-width: $mobile-width) {
+    width: 80px;
+
+    &.big {
+      width: 30vmin;
+    }
   }
 
   &.hide {

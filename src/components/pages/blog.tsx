@@ -7,7 +7,7 @@ import { SpacerComponent } from '../elements/Spacer'
 const BlogPage = () => {
   return (
     <div className={concatClass('page', 'blog-page')}>
-      <SpacerComponent ht={120} hb={60}>
+      <SpacerComponent template='blog-biography'>
         <ShortBiography></ShortBiography>
       </SpacerComponent>
       <SpacerComponent hb={30}>

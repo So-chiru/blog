@@ -38,8 +38,6 @@ const Loader = () => {
   const dispatch = useDispatch()
   const loader = useSelector((state: RootState) => state.loader)
 
-  console.dir(loader)
-
   // Document가 로딩될 때 수행되는 Loader Effect
   useEffect(() => {
     if (document.readyState !== 'complete') {
@@ -54,7 +52,7 @@ const Loader = () => {
     return () => {
       window.removeEventListener('load', loaded)
     }
-  })
+  }, [])
 
   // Loading 상태일 때 progress를 증가하게 만드는 Effect
   useEffect(() => {
