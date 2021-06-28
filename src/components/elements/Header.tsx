@@ -6,12 +6,14 @@ import { SearchBoxContainer } from './SearchBox'
 
 interface HeaderCompoenentProps {
   fixed?: boolean
+  logoClick?: () => void
   show?: boolean
   background?: boolean
 }
 
 export const HeaderCompoenent = ({
   fixed,
+  logoClick,
   show,
   background
 }: HeaderCompoenentProps) => {
@@ -25,7 +27,11 @@ export const HeaderCompoenent = ({
       )}
     >
       <div className='header-inner'>
-        <div className='logo-zone'>
+        <div
+          className='logo-zone'
+          onClick={logoClick}
+          data-clickable={!!logoClick}
+        >
           <ProfileCloud
             hide={false}
             style={{ width: '80px', height: '37px' }}
@@ -43,17 +49,32 @@ export const HeaderCompoenent = ({
 interface HeaderContainerProps {
   fixed?: boolean
   background?: boolean
+  onLogoClick?: () => void
   hideUntil?: number
 }
 
 export const HeaderContainer = ({
   fixed,
   hideUntil,
+  onLogoClick,
   background
 }: HeaderContainerProps) => {
   const [scrollShow, updateScrollShow] = useState<boolean>(
     hideUntil ? window.scrollY > hideUntil : true
   )
+
+  const logoClick = () => {
+    if (onLogoClick) {
+      onLogoClick()
+    }
+
+    if (hideUntil && window.scrollY > hideUntil) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   if (hideUntil) {
     const scroll = () => {
@@ -81,6 +102,7 @@ export const HeaderContainer = ({
   return (
     <HeaderCompoenent
       fixed={fixed}
+      logoClick={logoClick}
       show={scrollShow}
       background={background}
     ></HeaderCompoenent>

@@ -1,6 +1,6 @@
 import { concatClass } from '@/utils/component'
 import { validatePostID } from '@/utils/parse'
-import { useRouteMatch } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import { HeaderContainer as Header } from '../elements/Header'
 import { SpacerComponent } from '../elements/Spacer'
 
@@ -13,10 +13,16 @@ const PostPage = () => {
     postId: string
   }>()
 
+  const history = useHistory()
+
+  const goBlog = () => {
+    history.push('/blog')
+  }
+
   return (
     <div className={concatClass('page', 'post-page')}>
       <SpacerComponent h={16}>
-        <Header></Header>
+        <Header onLogoClick={goBlog}></Header>
       </SpacerComponent>
       {validatePostID(route.params.postId) ? (
         <PostViewContainer

@@ -62,13 +62,13 @@ module.exports = (_, argv) => {
       new DefinePlugin({
         'API_SERVER': JSON.stringify(argv.env.API_SERVER)
       }),
-      // new CopyWebpackPlugin({
-      //   patterns: [
-      //     {
-      //       from: 'public'
-      //     }
-      //   ]
-      // })
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'public'
+          }
+        ]
+      })
     ],
     optimization: {
       splitChunks: {

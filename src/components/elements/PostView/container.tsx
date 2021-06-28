@@ -11,6 +11,7 @@ import { PostBriefComponent } from '../PostList/component'
 import { BlogPostWithBlocks } from 'posts'
 import { extractPostTitleURL } from '@/utils/parse'
 import CommentContainer from '../Comment'
+import SiteMetadata from '@/components/metadata'
 
 interface PostViewContainerProps {
   id: string
@@ -70,6 +71,12 @@ export const PostViewContainer = ({ id, server }: PostViewContainerProps) => {
 
   return (
     <>
+      <SiteMetadata
+        title={((data && data.title) || '로딩 중...') + ' - Sochiru Blog'}
+        description={data && data.description}
+        image={data && data.background}
+        type={'article'}
+      ></SiteMetadata>
       <SpacerComponent ht={32} hb={32} w={0} flex={true}>
         <PostBriefComponent
           inPost={true}

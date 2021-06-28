@@ -7,6 +7,7 @@ import { LongBiography } from '../elements/Biography/long'
 import { ErrorTemplateComponent } from '../elements/Error'
 import { LinkHeaderContainer as LinkHeader } from '../elements/LinkHeader'
 import { SpacerComponent } from '../elements/Spacer'
+import SiteMetadata from '../metadata'
 
 const AboutMe = () => {
   return (
@@ -55,7 +56,9 @@ const AboutMe = () => {
       </div>
       <div className='section'>
         <h3 className='summary-title'>Q: 무슨 노래 즐겨 들어요?</h3>
-        <h1 className='title'>DAY6, Yorushika, ツユ, 그리고 듣기 좋은 가요 몇 개?</h1>
+        <h1 className='title'>
+          DAY6, Yorushika, ツユ, 그리고 듣기 좋은 가요 몇 개?
+        </h1>
       </div>
       <div className='section'>
         <h3 className='summary-title'>Q: 안물안궁</h3>
@@ -172,6 +175,7 @@ const Projects = () => {
 const AboutPage = () => {
   return (
     <div className={concatClass('page', 'about-page')}>
+      <SiteMetadata title='Sochiru'></SiteMetadata>
       <SpacerComponent flex={true} template='about-header'>
         <LinkHeader></LinkHeader>
       </SpacerComponent>

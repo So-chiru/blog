@@ -3,10 +3,18 @@ import { ShortBiography } from '../elements/Biography/short'
 import { LinkHeaderContainer as LinkHeader } from '../elements/LinkHeader'
 import PostListContainer from '../elements/PostList/container'
 import { SpacerComponent } from '../elements/Spacer'
+import SiteMetadata from '../metadata'
 
 const BlogPage = () => {
   return (
     <div className={concatClass('page', 'blog-page')}>
+      <SiteMetadata
+        title={'Sochiru Blog'}
+        description={
+          'Full-Stack Developer (yet), CS Student. Interested in design.'
+        }
+        type='profile'
+      ></SiteMetadata>
       <SpacerComponent template='blog-biography'>
         <ShortBiography></ShortBiography>
       </SpacerComponent>
