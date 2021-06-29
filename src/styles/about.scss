@@ -32,7 +32,7 @@
     color: $element-text;
 
     @media screen and (max-width: $mobile-width) {
-      font-size: 4.5vmin;
+      font-size: 3.5vmin;
     }
   }
 
@@ -89,6 +89,10 @@
     font-size: 16px;
     font-weight: 500;
     color: #adadad;
+
+    @media screen and (max-width: $mobile-width) {
+      font-size: 3.5vmin;
+    }
   }
 }
 
@@ -204,6 +208,16 @@ $link-color: #07a1e9;
         margin: 0;
       }
 
+      @media screen and (max-width: $mobile-width) {
+        .title {
+          font-size: 5.5vmin;
+        }
+
+        .description {
+          font-size: 3.5vmin;
+        }
+      }
+
       .title {
         font-weight: bold;
         font-size: 24px;
@@ -243,7 +257,7 @@ $link-color: #07a1e9;
     @media screen and (max-width: $tablet-width) {
       grid-auto-rows: 1fr;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 2fr 1fr;
       gap: 0px 0px;
       grid-template-areas:
         'metadata'

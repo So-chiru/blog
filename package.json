@@ -13,6 +13,7 @@
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "@yarnpkg/pnpify": "^3.0.0-rc.3",
+    "browserslist": "^4.16.6",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "copy-webpack-plugin": "^8.1.1",
     "css-loader": "^5.2.4",
@@ -32,15 +33,17 @@
     "sass": "^1.32.11",
     "sass-loader": "^11.0.1",
     "speed-measure-webpack-plugin": "^1.5.0",
+    "terser-webpack-plugin": "^5.1.4",
     "ts-loader": "^9.1.1",
     "webpack": "^5.35.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
+  "browserslist": "> 2%",
   "scripts": {
     "start": "yarn dev",
     "dev": "webpack serve --mode=development --content-base src --inline --hot --env API_SERVER=http://localhost:8787/",
-    "build": "webpack --mode=production --env API_SERVER=http://blog-api.sochiru.pw/",
+    "build": "webpack --mode=production --env API_SERVER=https://blog-api.sochiru.pw/",
     "lint": "eslint -c .eslintrc.json './src/**/*.{ts,tsx,js,jsx}'",
     "lint-fix": "eslint --fix -c .eslintrc.json './src/**/*.{ts,tsx,js,jsx}'"
   },

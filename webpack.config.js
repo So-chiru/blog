@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { DefinePlugin } = require('webpack')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 
@@ -17,7 +18,7 @@ module.exports = (_, argv) => {
 
   const options = {
     entry: path.resolve('src', 'index.tsx'),
-    target: devMode ? "web" : "browserslist",
+    target: devMode ? 'web' : 'browserslist',
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
       alias: {
@@ -60,7 +61,7 @@ module.exports = (_, argv) => {
         filename: 'index.html'
       }),
       new DefinePlugin({
-        'API_SERVER': JSON.stringify(argv.env.API_SERVER)
+        API_SERVER: JSON.stringify(argv.env.API_SERVER)
       }),
       new CopyWebpackPlugin({
         patterns: [
@@ -71,6 +72,17 @@ module.exports = (_, argv) => {
       })
     ],
     optimization: {
+      minimize: devMode && true,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            format: {
+              comments: false
+            }
+          },
+          extractComments: false
+        })
+      ],
       splitChunks: {
         chunks: 'all'
       }

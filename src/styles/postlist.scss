@@ -145,7 +145,7 @@
     }
 
     .description {
-      font-size: 4.5vmin;
+      font-size: 3.5vmin;
     }
 
     &.in-post {
@@ -210,6 +210,6 @@
   }
 
   @media screen and (max-width: $mobile-width) {
-    font-size: 4.5vmin;
+    font-size: 3.5vmin;
   }
 }

@@ -65,7 +65,7 @@ const Loader = () => {
             Math.min(0.8, progressExpo((Date.now() - loader.lastChanged) / 800))
           )
         )
-      }, 300)
+      }, 300) as unknown as number
     }
 
     return () => {
@@ -85,7 +85,7 @@ const Loader = () => {
     ) {
       update = setTimeout(() => {
         dispatch(loaderActions.ready())
-      }, 300)
+      }, 300) as unknown as number
     }
 
     return () => {
