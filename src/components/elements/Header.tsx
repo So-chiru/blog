@@ -25,6 +25,7 @@ export const HeaderCompoenent = ({
         typeof show === 'boolean' ? (show ? 'show' : 'hidden') : undefined,
         background && 'background'
       )}
+      aria-hidden={!show}
     >
       <div className='header-inner'>
         <div

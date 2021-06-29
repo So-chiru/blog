@@ -19,16 +19,29 @@ export const LongBiography = () => {
   ]
 
   return (
-    <div className='long-biography'>
+    <div
+      className='long-biography'
+      aria-live='polite'
+      aria-label='개발자 Sochiru의 홈페이지입니다.'
+    >
       <div className='text'>
         <div className='text-wrapper'>
           <h1 className='title'>Sochiru</h1>
           <p className='description'>
             Full-Stack Developer (yet), CS Student. Interested in design.
           </p>
-          <div className='contact-links'>
+          <div
+            className='contact-links'
+            role='group'
+            aria-label='Contact Links'
+          >
             {...contactLinks.map(v => (
-              <div key={v.id} className='link'>
+              <div
+                key={v.id}
+                className='link'
+                role='group'
+                aria-label={v.id + ' link: ' + v.content.split('').join(' ')}
+              >
                 <span className='icon'>{v.icon}</span>
                 <span className='text'>{v.content}</span>
               </div>

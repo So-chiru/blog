@@ -125,7 +125,18 @@ const Projects = () => {
     <SpacerComponent template='about-projects'>
       <div className='projects'>
         {ProjectListData.map(item => (
-          <div className='project-item' key={item.name}>
+          <div
+            className='project-item'
+            key={item.name}
+            role='region'
+            aria-label={
+              item.name +
+              ' project: ' +
+              item.description +
+              '. written in ' +
+              item.language.text
+            }
+          >
             <div className='metadata'>
               <h3 className='title'>{item.name}</h3>
               <p className='description'>{item.description}</p>
@@ -142,7 +153,11 @@ const Projects = () => {
             </div>
             <div className='links'>
               {item.links.map(link => (
-                <a key={link.url} href={link.url}>
+                <a
+                  key={link.url}
+                  href={link.url}
+                  aria-label={item.name + ' project: ' + link.text}
+                >
                   {link.text}
                 </a>
               ))}
@@ -152,7 +167,7 @@ const Projects = () => {
         <div
           className='repository-button'
           tabIndex={0}
-          role='link'
+          role='button'
           onClick={() =>
             move && move('https://github.com/So-chiru?tab=repositories')
           }

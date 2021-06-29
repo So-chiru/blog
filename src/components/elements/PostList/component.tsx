@@ -62,7 +62,17 @@ export const PostBriefComponent = ({
       data-id={data.id}
       className={concatClass('post', inPost && 'in-post')}
       tabIndex={0}
-      role='link'
+      role={inPost ? 'contentinfo' : 'link'}
+      aria-live={inPost ? 'polite' : undefined}
+      aria-label={
+        data.title +
+        ' 게시글. ' +
+        (data.description || '게시글이 로딩 중이거나 설명이 부여되지 않았습니다.') +
+        '. ' +
+        (data.created
+          ? new Date(data.created).toLocaleDateString('ko-KR') + ' 에 게시됨.'
+          : '')
+      }
       onClick={() => move && move(data.title, data.id)}
       onKeyPress={ev => ev.key === 'Enter' && move && move(data.title, data.id)}
     >
@@ -74,7 +84,7 @@ export const PostBriefComponent = ({
           ></LazyLoadImage>
         )}
       </div>
-      <div className='brief-data'>
+      <div className='brief-data' id='brief-data'>
         <h3 className='title'>{data.title}</h3>
         {!inPost && <p className='description'>{data.description}</p>}
       </div>
@@ -108,7 +118,14 @@ const PostListComponent = ({ data }: PostListComponentProps) => {
   }
 
   return (
-    <div className='post-list'>
+    <div
+      className='post-list'
+      role='group'
+      aria-label={
+        '블로그 게시글 목록. ' + data.posts.length + '개의 게시글이 보여짐.'
+      }
+      aria-live='polite'
+    >
       {...data.posts.map(v => (
         <PostBriefComponent
           key={v.id}

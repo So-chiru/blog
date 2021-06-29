@@ -7,6 +7,7 @@ interface ErrorTemplateComponentProps {
   title: string
   text?: string
   mute?: string
+  assertive?: boolean
 }
 
 const errorMessages = [
@@ -27,6 +28,7 @@ export const ErrorComponent = ({
       title={errorMessages[Math.floor(Math.random() * errorMessages.length)]}
       text={type + '을 가져오지 못했어요.'}
       mute={error && error.message}
+      assertive={true}
     ></ErrorTemplateComponent>
   )
 }
@@ -34,13 +36,21 @@ export const ErrorComponent = ({
 export const ErrorTemplateComponent = ({
   title,
   text,
-  mute
+  mute,
+  assertive
 }: ErrorTemplateComponentProps) => {
   return (
-    <div className='post-list-error'>
+    <div
+      className='post-list-error'
+      aria-live={assertive ? 'assertive' : undefined}
+      aria-label={
+        (text ? '오류: ' + text + ', ' : '') +
+        (mute ? '자세한 사항: ' + mute : '')
+      }
+    >
       <h1 className='icon'>🥺</h1>
       <h3>{title}</h3>
-      <p>
+      <p id='error-text'>
         {text} {mute && <span className='mute'>{mute}</span>}
       </p>
     </div>

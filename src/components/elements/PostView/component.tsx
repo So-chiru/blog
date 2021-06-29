@@ -36,7 +36,15 @@ const replaceSpace = (str: string) => str.replace(/\s/g, '\u00a0')
 
 export const PostViewComponent = ({ blocks }: PostViewComponentProps) => {
   return (
-    <div className='post-view-component'>
+    <article
+      className='post-view-component'
+      aria-label={
+        '게시글의 내용. ' +
+        (blocks
+          ? blocks.length + '개의 블럭이 존재합니다.'
+          : '아직 페이지가 로딩 중인 것 같아요.')
+      }
+    >
       {blocks &&
         blocks.map(v => {
           // console.log(v)
@@ -51,9 +59,12 @@ export const PostViewComponent = ({ blocks }: PostViewComponentProps) => {
               )
             case 'paragraph':
               return (
-                <p>
+                <p key={v.id}>
                   {v.paragraph.text.map((text, index) => (
-                    <span key={v.id + index} {...blockPropertyHandler(text)}>
+                    <span
+                      key={v.id + '-in-' + index}
+                      {...blockPropertyHandler(text)}
+                    >
                       {replaceSpace(text.plain_text) || ''}
                     </span>
                   ))}
@@ -106,6 +117,6 @@ export const PostViewComponent = ({ blocks }: PostViewComponentProps) => {
               )
           }
         })}
-    </div>
+    </article>
   )
 }

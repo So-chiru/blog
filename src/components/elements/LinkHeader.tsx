@@ -34,6 +34,7 @@ export const LinkHeaderCompoenent = ({
             <GoLink
               key={link.name}
               data-active={link.active}
+              aria-current={link.active ? 'page' : undefined}
               className='link'
               to={link.path}
             >

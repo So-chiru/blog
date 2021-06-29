@@ -8,7 +8,7 @@ const AboutSectionComponent = ({
   children
 }: AboutSectionComponentProps) => {
   return (
-    <div className='about-section'>
+    <div className='about-section' role='group' aria-label={name}>
       <p className='section-title'>{name}</p>
       <div className='contents'>{children}</div>
     </div>
