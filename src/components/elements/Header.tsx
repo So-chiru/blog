@@ -35,7 +35,11 @@ export const HeaderCompoenent = ({
         >
           <ProfileCloud
             hide={false}
-            style={{ width: '80px', height: '37px' }}
+            small={true}
+            style={{
+              '--width': '80px',
+              '--height': '37px'
+            }}
           ></ProfileCloud>
         </div>
         <div className='search-zone'>

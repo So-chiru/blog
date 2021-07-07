@@ -35,6 +35,8 @@ const blockPropertyHandler = (text: RichText) => {
 const replaceSpace = (str: string) => str.replace(/\s/g, '\u00a0')
 
 export const PostViewComponent = ({ blocks }: PostViewComponentProps) => {
+  let numberedListIndex = 0
+
   return (
     <article
       className='post-view-component'
@@ -46,7 +48,7 @@ export const PostViewComponent = ({ blocks }: PostViewComponentProps) => {
       }
     >
       {blocks &&
-        blocks.map(v => {
+        blocks.map((v, i) => {
           // console.log(v)
 
           switch (v.type) {
@@ -100,8 +102,36 @@ export const PostViewComponent = ({ blocks }: PostViewComponentProps) => {
                   {...v.bulleted_list_item.text.map(
                     (bulltedItem, bulltedItemIndex) => {
                       return (
-                        <div className='text' key={v.id + bulltedItemIndex}>
+                        <div
+                          className='text'
+                          key={v.id + bulltedItemIndex}
+                          {...blockPropertyHandler(bulltedItem)}
+                        >
                           {bulltedItem.plain_text}
+                        </div>
+                      )
+                    }
+                  )}
+                </div>
+              )
+            case 'numbered_list_item':
+              return (
+                <div className='numbered-list-item' key={v.id}>
+                  {...v.numbered_list_item.text.map(
+                    (numberedItem, numberedItemIndex) => {
+                      if (blocks[i].type === 'numbered_list_item') {
+                        numberedListIndex++
+                      } else {
+                        numberedListIndex = 1
+                      }
+
+                      return (
+                        <div
+                          className='text'
+                          key={v.id + numberedItemIndex}
+                          {...blockPropertyHandler(numberedItem)}
+                        >
+                          <span className='index'>{numberedListIndex}.</span>{numberedItem.plain_text}
                         </div>
                       )
                     }

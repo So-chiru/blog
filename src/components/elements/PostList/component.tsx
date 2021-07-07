@@ -60,14 +60,19 @@ export const PostBriefComponent = ({
   return (
     <div
       data-id={data.id}
-      className={concatClass('post', inPost && 'in-post')}
+      className={concatClass(
+        'post',
+        inPost && 'in-post',
+        !data.background && 'no-hero'
+      )}
       tabIndex={0}
       role={inPost ? 'contentinfo' : 'link'}
       aria-live={inPost ? 'polite' : undefined}
       aria-label={
         data.title +
         ' 게시글. ' +
-        (data.description || '게시글이 로딩 중이거나 설명이 부여되지 않았습니다.') +
+        (data.description ||
+          '게시글이 로딩 중이거나 설명이 부여되지 않았습니다.') +
         '. ' +
         (data.created
           ? new Date(data.created).toLocaleDateString('ko-KR') + ' 에 게시됨.'
@@ -76,14 +81,16 @@ export const PostBriefComponent = ({
       onClick={() => move && move(data.title, data.id)}
       onKeyPress={ev => ev.key === 'Enter' && move && move(data.title, data.id)}
     >
-      <div className='hero-image'>
-        {data.background && (
-          <LazyLoadImage
-            src={data.background}
-            effect={'opacity'}
-          ></LazyLoadImage>
-        )}
-      </div>
+      {data.background && (
+        <div className='hero-image'>
+          {
+            <LazyLoadImage
+              src={data.background}
+              effect={'opacity'}
+            ></LazyLoadImage>
+          }
+        </div>
+      )}
       <div className='brief-data' id='brief-data'>
         <h3 className='title'>{data.title}</h3>
         {!inPost && <p className='description'>{data.description}</p>}

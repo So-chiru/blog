@@ -1,8 +1,12 @@
 import '@/styles/biography.scss'
-import { RiGithubFill, RiInstagramLine, RiAtLine } from 'react-icons/ri'
+import { RiGithubFill, RiAtLine } from 'react-icons/ri'
 import ProfileCloud from '../ProfileCloud'
 
 export const LongBiography = () => {
+  const goLink = (href: string) => {
+    window.open(href, '_blank')
+  }
+
   const contactLinks = [
     {
       id: 'github',
@@ -13,8 +17,14 @@ export const LongBiography = () => {
     {
       id: 'email',
       icon: <RiAtLine></RiAtLine>,
-      href: 'mailto://sochiru@sochiru.pw',
+      href: 'mailto:sochiru@sochiru.pw',
       content: 'sochiru@sochiru.pw'
+    },
+    {
+      id: 'email',
+      icon: <RiAtLine></RiAtLine>,
+      href: 'mailto:sochiru@kakao.com',
+      content: 'sochiru@kakao.com (alt)'
     }
   ]
 
@@ -37,9 +47,10 @@ export const LongBiography = () => {
           >
             {...contactLinks.map(v => (
               <div
-                key={v.id}
+                key={v.id + v.content}
                 className='link'
                 role='group'
+                onClick={() => goLink(v.href)}
                 aria-label={v.id + ' link: ' + v.content.split('').join(' ')}
               >
                 <span className='icon'>{v.icon}</span>

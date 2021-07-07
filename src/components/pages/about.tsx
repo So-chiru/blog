@@ -34,12 +34,16 @@ const AboutMe = () => {
             },
             {
               name: 'Rust',
-              color: '#000'
+              color: '#d95d1b'
+            },
+            {
+              name: 'Lua',
+              color: '#00007D'
             }
           ].map(item => (
             <span key={item.name}>
               <span
-                // className='highlight'
+                className='highlight'
                 style={{ ['--color' as string]: item.color }}
               >
                 {item.name}
@@ -51,14 +55,39 @@ const AboutMe = () => {
         </h1>
       </div>
       <div className='section'>
-        <h3 className='summary-title'>그래서 누군데요</h3>
+        <h3 className='summary-title'>개발 의뢰도 받으시나요?</h3>
+        <h1 className='title'>
+          네, 받고 있습니다. 위에 적힌 이메일로 의뢰하실 내용을 간략히 넣어
+          보내주세요.
+        </h1>
+      </div>
+      <div className='section'>
+        <h3 className='summary-title'>그래서 누구에요</h3>
         <h1 className='title'>개발하는 한국 사람이에요</h1>
       </div>
       <div className='section'>
-        <h3 className='summary-title'>Q: 무슨 노래 즐겨 들어요?</h3>
+        <h3 className='summary-title'>무슨 노래 즐겨 들어요?</h3>
         <h1 className='title'>
-          DAY6, Yorushika, ツユ, 그리고 듣기 좋은 가요 몇 개?
+          DAY6, Yorushika, RADWIMPS... 그리고 밴드 스타일 가요 몇 개?
         </h1>
+      </div>
+      <div className='section'>
+        <h3 className='summary-title'>노래 추천해주세요!</h3>
+        <h1 className='title'>
+          <a
+            className='highlight-box'
+            href='https://youtu.be/N2p__-LRBNc'
+            target='_blank'
+            rel='noreferrer'
+            style={{ ['--color' as string]: '#4c8561' }}
+          >
+            DAY6 (Even of Day) - 뚫고 지나가요
+          </a>
+        </h1>
+      </div>
+      <div className='section'>
+        <h3 className='summary-title'>MBTI는 뭐에요?</h3>
+        <h1 className='title'>INFJ.</h1>
       </div>
       <div className='section'>
         <h3 className='summary-title'>Q: 안물안궁</h3>
@@ -74,7 +103,7 @@ const Careers = () => {
       <SpacerComponent h={128}>
         <ErrorTemplateComponent
           title='No careers yet...'
-          mute='I’m available for jobs, feel free to contact me!'
+          mute='feel free to contact me!'
         ></ErrorTemplateComponent>
       </SpacerComponent>
     </div>

@@ -28,14 +28,26 @@
   transform: translateX(calc(96vw * var(--progress, 0)));
   transition: $quartic-transform;
 
-  width: 120px;
+  width: var(--width, 100px);
+  height: var(--height, auto);
 
   &.big {
     width: 160px;
   }
 
+  &.small {
+    width: var(--width, 60px);
+    height: var(--height, 27.75px);
+
+    @media screen and (max-width: $mobile-width) {
+      width: 60px;
+      height: 27.75px;
+    }
+  }
+
   @media screen and (max-width: $mobile-width) {
-    width: 80px;
+    width: var(--mobile-width, 80px);
+    height: var(--mobile-height, auto);
 
     &.big {
       width: 30vmin;
@@ -53,10 +65,12 @@
   0%,
   100% {
     transform: translateY(0px);
+    -webkit-transform: translateY(0px);
   }
 
   50% {
     transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
   }
 }
 

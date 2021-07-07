@@ -10,10 +10,20 @@
 
   .icon {
     font-size: 64px;
+
+    @media screen and (max-width: $mobile-width) {
+      font-size: 46px;
+    }
   }
 
   .mute {
     opacity: 0.4;
+  }
+
+  p {
+    @media screen and (max-width: $mobile-width) {
+      font-size: 3.5vmin;
+    }
   }
 
   display: block;
@@ -30,6 +40,19 @@
     'hero-image hero-image'
     'brief-data meta-data';
 
+  &.no-hero {
+    grid-template-rows: 1fr;
+    grid-template-areas: 'brief-data meta-data';
+
+    @media screen and (max-width: $tablet-width) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.6fr 0.4fr;
+      grid-template-areas:
+        'brief-data'
+        'meta-data';
+    }
+  }
+
   &.in-post {
     grid-template-columns: 1.3fr;
     grid-template-rows: 1.5fr 0.3fr 0.2fr;
@@ -38,6 +61,10 @@
       'brief-data'
       'meta-data';
     width: 100%;
+
+    &.no-hero {
+      grid-template-rows: 0.1fr 0.5fr 0.4fr;
+    }
 
     .meta-data {
       margin-left: unset;
@@ -51,8 +78,10 @@
       font-size: 26px;
     }
 
-    .brief-data {
-      margin-top: 32px;
+    &:not(.no-hero) {
+      .brief-data {
+        margin-top: 32px;
+      }
     }
 
     .post-tag[data-id='date'] {
@@ -174,7 +203,8 @@
 
 .post-list {
   .post {
-    margin-bottom: 36px;
+    margin-top: 32px;
+    margin-bottom: 32px;
 
     &:last-child {
       margin-bottom: unset;
