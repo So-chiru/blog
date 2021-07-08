@@ -5,5 +5,8 @@
       "maxDuration": 10
     }
   },
-  "routes": [{ "src": "/blog/(?<id>[^/]+)", "dest": "/api/post?postId=$id" }]
+  "routes": [
+    { "src": "/blog/(?<id>[^/]+)", "dest": "/api/post?postId=$id" },
+    { "src": "/.*", "dest": "/" }
+  ]
 }
