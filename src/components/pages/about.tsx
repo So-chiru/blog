@@ -52,11 +52,6 @@ const AboutMe = () => {
       color: '#f0c45d'
     },
     {
-      name: 'BTS - Stay Gold',
-      link: 'https://youtu.be/9IHwqdz8Xhw',
-      color: '#f0c45d'
-    },
-    {
       name: '달의하루 - 염라',
       link: 'https://youtu.be/jv543Nk5s18',
       color: '#e06e72'
