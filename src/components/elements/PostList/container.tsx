@@ -31,7 +31,14 @@ const PostListContainer = ({ server }: PostListContainerProps) => {
     setLoadState(APILoadState.Loading)
     dispatch(loaderActions.start())
 
-    fetch(server)
+    let controller: AbortController | undefined
+    if (window.AbortController) {
+      controller = new AbortController()
+    }
+
+    fetch(server, {
+      signal: controller && controller.signal
+    })
       .then(v => {
         setLoadState(APILoadState.Loaded)
 
@@ -50,6 +57,10 @@ const PostListContainer = ({ server }: PostListContainerProps) => {
         setLoadState(APILoadState.Error)
         dispatch(loaderActions.failed(e))
       })
+
+    return () => {
+      controller && controller.abort()
+    }
   }, [])
 
   return (

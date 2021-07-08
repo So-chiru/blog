@@ -73,16 +73,18 @@ module.exports = (_, argv) => {
     ],
     optimization: {
       minimize: devMode,
-      minimizer: devMode ? [
-        new TerserPlugin({
-          terserOptions: {
-            format: {
-              comments: false
-            }
-          },
-          extractComments: false
-        })
-      ] : [],
+      minimizer: devMode
+        ? [
+            new TerserPlugin({
+              terserOptions: {
+                format: {
+                  comments: false
+                }
+              },
+              extractComments: false
+            })
+          ]
+        : [],
       splitChunks: {
         chunks: 'all'
       }
@@ -97,7 +99,7 @@ module.exports = (_, argv) => {
       contentBase: './dist/',
       watchContentBase: true,
       compress: true,
-      port: 8080,
+      port: argv.env.PORT ? Number(argv.env.PORT) : 8080,
       hot: true,
       historyApiFallback: true
     }

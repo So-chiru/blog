@@ -7,6 +7,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/opacity.css'
 import { BlogPost, Color, PostListData } from '@/@types/posts'
 import { concatClass } from '@/utils/component'
+import { colorShade } from '@/utils/color'
 
 interface PostListComponentProps {
   data: PostListData
@@ -18,17 +19,17 @@ interface TagComponentProps {
   id?: string
 }
 
-const tagColor: Record<Color, string | undefined> = {
-  default: undefined,
-  gray: '#7b7b7b',
-  brown: '#dc945c',
-  orange: '#ffa561',
-  yellow: '#ffef00',
-  green: '#64ff4b',
-  blue: '#63bcff',
-  purple: '#c663ff',
-  pink: '#ff99f1',
-  red: '#ff6c6c'
+const tagColor: Record<Color, string> = {
+  default: '',
+  gray: '#d4d4d4',
+  brown: '#ab693f',
+  orange: '#f2a879',
+  yellow: '#f5e83b',
+  green: '#98f089',
+  blue: '#89c2f0',
+  purple: '#cc89f0',
+  pink: '#fca2e0',
+  red: '#fab1b1'
 }
 
 export const TagComponent = ({ color, text, id }: TagComponentProps) => {
@@ -38,7 +39,9 @@ export const TagComponent = ({ color, text, id }: TagComponentProps) => {
       data-id={id}
       style={{
         ['--color' as string]:
-          color && tagColor[color] ? tagColor[color] : color
+          color && tagColor[color] ? tagColor[color] : color,
+        ['--darken-color' as string]:
+          color && tagColor[color] ? colorShade(tagColor[color], 1.3, 0.12) : color
       }}
     >
       <span className='text'>{text}</span>

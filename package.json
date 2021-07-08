@@ -5,6 +5,7 @@
   "author": "So-chiru <unleash9224@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/node-fetch": "^2.5.11",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
     "@types/react-lazy-load-image-component": "^1.5.1",
@@ -12,6 +13,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
+    "@vercel/build-utils": "^2.11.1",
     "@yarnpkg/pnpify": "^3.0.0-rc.10",
     "browserslist": "^4.16.6",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
@@ -41,13 +43,16 @@
   },
   "browserslist": "> 2%",
   "scripts": {
-    "start": "yarn dev",
-    "dev": "webpack serve --mode=development --content-base src --inline --hot --env API_SERVER=http://localhost:8787/",
+    "vercel": "vercel dev",
+    "dev": "webpack serve --mode=development --content-base src --inline --hot --env API_SERVER=http://localhost:8383/ PORT=$PORT",
     "build": "webpack --mode=production --env API_SERVER=https://blog-api.sochiru.pw/",
     "lint": "eslint -c .eslintrc.json './src/**/*.{ts,tsx,js,jsx}'",
     "lint-fix": "eslint --fix -c .eslintrc.json './src/**/*.{ts,tsx,js,jsx}'"
   },
   "dependencies": {
+    "@vercel/fetch": "^6.1.1",
+    "@vercel/node": "^1.11.1",
+    "node-fetch": "^2.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",

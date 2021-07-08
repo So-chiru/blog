@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
+  "functions": {
+    "api/post.ts": {
+      "memory": 512,
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
+    { "source": "/blog/:postId*", "destination": "api/post" },
     {
       "source": "/(.*)",
       "destination": "/"

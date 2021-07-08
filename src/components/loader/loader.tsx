@@ -59,13 +59,13 @@ const Loader = () => {
     let update: number
 
     if (loader.state === LoaderState.Loading) {
-      update = setTimeout(() => {
+      update = (setTimeout(() => {
         dispatch(
           loaderActions.updateProgress(
             Math.min(0.8, progressExpo((Date.now() - loader.lastChanged) / 800))
           )
         )
-      }, 300) as unknown as number
+      }, 300) as unknown) as number
     }
 
     return () => {
@@ -83,9 +83,9 @@ const Loader = () => {
       loader.state === LoaderState.Loaded ||
       loader.state === LoaderState.Failed
     ) {
-      update = setTimeout(() => {
+      update = (setTimeout(() => {
         dispatch(loaderActions.ready())
-      }, 300) as unknown as number
+      }, 300) as unknown) as number
     }
 
     return () => {
@@ -102,6 +102,7 @@ const Loader = () => {
       <ProfileCloud
         state={loader.state}
         hide={hide}
+        small={true}
         style={{
           ['--progress' as string]: loader.progress
         }}

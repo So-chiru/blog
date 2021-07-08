@@ -7,6 +7,13 @@ import { SpacerComponent } from '../elements/Spacer'
 import '@/styles/post.scss'
 import { PostViewContainer } from '../elements/PostView/container'
 import { ErrorComponent } from '../elements/Error'
+import { BlogPostWithBlocks } from '@/@types/posts'
+
+declare global {
+  interface Window {
+    sochiruBlogPrefetch?: { error: string | null; data?: string }
+  }
+}
 
 const PostPage = () => {
   const route = useRouteMatch<{
@@ -24,7 +31,11 @@ const PostPage = () => {
       <SpacerComponent h={16}>
         <Header onLogoClick={goBlog}></Header>
       </SpacerComponent>
-      {validatePostID(route.params.postId) ? (
+      {window.sochiruBlogPrefetch ? (
+        <PostViewContainer
+          preData={window.sochiruBlogPrefetch}
+        ></PostViewContainer>
+      ) : validatePostID(route.params.postId) ? (
         <PostViewContainer
           id={route.params.postId}
           server={`${API_SERVER}post`}
