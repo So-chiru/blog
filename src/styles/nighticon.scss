@@ -1,6 +1,13 @@
 .night-icon {
+  display: flex;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+
   .icon {
-    width: 42px;
+    display: flex;
+    width: 24px;
+    height: 24px;
 
     & > svg {
       margin: auto;

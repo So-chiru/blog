@@ -3,8 +3,6 @@ import fetch from 'node-fetch'
 
 import { validatePostID } from '../src/utils/parse'
 
-import fs from 'fs'
-
 let indexFS = ''
 
 export default async (req: VercelRequest, res: VercelResponse) => {
@@ -21,7 +19,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       throw new Error('올바르지 않은 URL 입니다.')
     }
 
-    console.time('fetch')
     const data = await fetch(
       process.env.NODE_ENV === 'production'
         ? 'https://blog-api.sochiru.pw'
@@ -33,8 +30,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     if (result.error) {
       throw new Error(result.error)
     }
-
-    console.timeEnd('fetch')
 
     let resultString = indexFS.toString().replace(
       '<!-- SSR: SCRIPT -->',
