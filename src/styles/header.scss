@@ -160,8 +160,6 @@
     transition-delay: 100ms;
 
     @media screen and (max-width: $tablet-width) {
-      width: 60px;
-
       .search-box {
         width: unset;
 
