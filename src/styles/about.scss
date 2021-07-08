@@ -313,3 +313,66 @@ $link-color: #07a1e9;
     }
   }
 }
+
+html[data-theme='night'] {
+  .about-me {
+    .highlight,
+    .highlight-second,
+    .highlight-box {
+      color: #fff;
+
+      &::before {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .about-section {
+    background: $dark-element-background;
+
+    .section-title {
+      color: $dark-text-mute;
+    }
+  }
+
+  .repository-button {
+    background: $link-color;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background: darken($link-color, 3);
+    }
+
+    &:active {
+      background: darken($link-color, 6);
+    }
+  }
+
+  .project-item {
+    .tags {
+      .language {
+        color: $dark-text-mute;
+
+        &::before {
+          background: var(--color, $dark-background);
+        }
+      }
+    }
+
+    .links {
+      & > a {
+        color: #248bea;
+
+        &:hover,
+        &:focus {
+          background: rgba(255, 255, 255, 0.06);
+        }
+
+        &:active {
+          background: rgba(255, 255, 255, 0.12);
+        }
+      }
+    }
+  }
+}

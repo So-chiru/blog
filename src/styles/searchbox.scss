@@ -46,3 +46,10 @@
     }
   }
 }
+
+html[data-theme='night'] {
+  .search-box {
+    background: $dark-element-background;
+    color: $dark-element-text;
+  }
+}

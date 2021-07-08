@@ -1,4 +1,5 @@
 @import './size.scss';
+@import './colors.scss';
 
 .post-list-error {
   line-height: 100%;
@@ -255,5 +256,22 @@
 
   @media screen and (max-width: $mobile-width) {
     font-size: 3.5vmin;
+  }
+}
+
+html[data-theme='night'] {
+  .post {
+    .hero-image {
+      border: 1px solid rgba(122, 122, 122, 0.06);
+      box-shadow: 0px 0px 22px rgba(122, 122, 122, 0.06);
+    }
+  }
+
+  .post-tag {
+    box-shadow: 0px 0px 12px var(--darken-color, rgba(255, 255, 255, 0.06));
+
+    &::before {
+      background: var(--color, $dark-element-background);
+    }
   }
 }

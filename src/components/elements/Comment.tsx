@@ -1,6 +1,13 @@
+import { RootState } from '@/store'
 import { useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
+import { ThemeState } from '@/@types/theme'
 
-export const CommentComponent = () => {
+interface CommentComponentProps {
+  theme?: string
+}
+
+export const CommentComponent = ({ theme }: CommentComponentProps) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -15,16 +22,32 @@ export const CommentComponent = () => {
 
     script.setAttribute('repo', 'So-chiru/blog-comments')
     script.setAttribute('issue-term', 'url')
-    script.setAttribute('theme', 'github-light')
+    script.setAttribute('theme', theme || 'github-light')
 
     ref.current.appendChild(script)
-  }, [ref])
+
+    return () => {
+      const app = document.querySelector('.utterances')
+
+      if (app) {
+        app.parentElement!.removeChild(app)
+      }
+    }
+  }, [ref, theme])
 
   return <div className='post-comments' ref={ref}></div>
 }
 
 export const CommentContainer = () => {
-  return <CommentComponent></CommentComponent>
+  const theme = useSelector((state: RootState) => state.ui.theme.mode)
+
+  let themeString = 'github-light'
+
+  if (theme === ThemeState.Night) {
+    themeString = 'github-dark'
+  }
+
+  return <CommentComponent theme={themeString}></CommentComponent>
 }
 
 export default CommentContainer

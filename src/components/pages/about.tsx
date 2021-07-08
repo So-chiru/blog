@@ -9,7 +9,65 @@ import { LinkHeaderContainer as LinkHeader } from '../elements/LinkHeader'
 import { SpacerComponent } from '../elements/Spacer'
 import SiteMetadata from '../metadata'
 
+interface MusicRecommend {
+  name: string
+  link: string
+  color: string
+}
+
+const arrayPickRandom = (arr: MusicRecommend[]): MusicRecommend => {
+  return arr[Math.floor(arr.length * Math.random())]
+}
+
 const AboutMe = () => {
+  const randomMusic = arrayPickRandom([
+    {
+      name: 'DAY6 (Even of Day) - 뚫고 지나가요',
+      link: 'https://youtu.be/N2p__-LRBNc',
+      color: '#4c8561'
+    },
+    {
+      name: 'DAY6 (Even of Day) - 우린',
+      link: 'https://youtu.be/tqyrl2V1kTM',
+      color: '#4c8561'
+    },
+    {
+      name: 'ヨルシカ (Yorushika) - 又三郎 (Matasaburo)',
+      link: 'https://youtu.be/x8xxFKVkNpw',
+      color: '#81c6e6'
+    },
+    {
+      name: 'ヨルシカ (Yorushika) - 雨とカプチーノ (Rain with Cappuccino)',
+      link: 'https://youtu.be/PWbRleMGagU',
+      color: '#ebeb65'
+    },
+    {
+      name: 'ラックライフ (Luck Life) - 名前を呼ぶよ',
+      link: 'https://youtu.be/-g6MYL5lOZs',
+      color: '#9c9c9c'
+    },
+    {
+      name: 'BTS - Stay Gold',
+      link: 'https://youtu.be/9IHwqdz8Xhw',
+      color: '#f0c45d'
+    },
+    {
+      name: 'BTS - Stay Gold',
+      link: 'https://youtu.be/9IHwqdz8Xhw',
+      color: '#f0c45d'
+    },
+    {
+      name: '달의하루 - 염라',
+      link: 'https://youtu.be/jv543Nk5s18',
+      color: '#e06e72'
+    },
+    {
+      name: 'IU - 자장가',
+      link: 'https://youtu.be/aepREwo5Lio',
+      color: '#cbd1c2'
+    }
+  ])
+
   return (
     <div className='about-me'>
       <div className='section'>
@@ -74,15 +132,17 @@ const AboutMe = () => {
       <div className='section'>
         <h3 className='summary-title'>노래 추천해주세요!</h3>
         <h1 className='title'>
-          <a
-            className='highlight-box'
-            href='https://youtu.be/N2p__-LRBNc'
-            target='_blank'
-            rel='noreferrer'
-            style={{ ['--color' as string]: '#4c8561' }}
-          >
-            DAY6 (Even of Day) - 뚫고 지나가요
-          </a>
+          {
+            <a
+              className='highlight-box'
+              href={randomMusic.link}
+              target='_blank'
+              rel='noreferrer'
+              style={{ ['--color' as string]: randomMusic.color }}
+            >
+              {randomMusic.name}
+            </a>
+          }
         </h1>
       </div>
       <div className='section'>

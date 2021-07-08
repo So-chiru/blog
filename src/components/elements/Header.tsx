@@ -3,6 +3,7 @@ import { concatClass } from '@/utils/component'
 import { useEffect, useState } from 'react'
 import ProfileCloud from './ProfileCloud'
 import { SearchBoxContainer } from './SearchBox'
+import { NightIconContainer } from './NightModeIcon'
 
 interface HeaderCompoenentProps {
   fixed?: boolean
@@ -42,8 +43,9 @@ export const HeaderCompoenent = ({
             }}
           ></ProfileCloud>
         </div>
-        <div className='search-zone'>
+        <div className='control-zone'>
           <SearchBoxContainer></SearchBoxContainer>
+          <NightIconContainer></NightIconContainer>
         </div>
       </div>
       {background && <div className='header-background'></div>}

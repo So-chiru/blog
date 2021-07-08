@@ -1,0 +1,11 @@
+.night-icon {
+  .icon {
+    width: 42px;
+
+    & > svg {
+      margin: auto;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

@@ -58,7 +58,7 @@
   }
 
   .logo-zone,
-  .search-zone {
+  .control-zone {
     position: relative;
     display: flex;
 
@@ -75,7 +75,7 @@
     opacity: 1;
 
     .logo-zone,
-    .search-zone {
+    .control-zone {
       opacity: 1;
       transform: translateY(0px);
     }
@@ -86,7 +86,7 @@
     opacity: 0;
 
     .logo-zone,
-    .search-zone {
+    .control-zone {
       opacity: 0;
       transform: translateY(-10px);
     }
@@ -137,7 +137,7 @@
           top: 30%;
           left: -15%;
           z-index: -1;
-          background: #d0effd;
+          background: $text-link-highlight;
         }
       }
     }
@@ -155,7 +155,7 @@
     }
   }
 
-  .search-zone {
+  .control-zone {
     margin-left: auto;
     transition-delay: 100ms;
 
@@ -168,6 +168,14 @@
         .text {
           display: none;
         }
+      }
+    }
+
+    & > * {
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: unset;
       }
     }
   }
@@ -189,6 +197,44 @@
       @media screen and (max-width: $tablet-width) {
         top: 12px;
         width: 90%;
+      }
+    }
+  }
+}
+
+html[data-theme='night'] {
+  .header-background {
+    background: linear-gradient(
+      to bottom,
+      hsl(204, 14.29%, 6.86%) 0%,
+      hsla(204, 14.29%, 6.86%, 0.984) 13%,
+      hsla(204, 14.29%, 6.86%, 0.946) 24%,
+      hsla(204, 14.29%, 6.86%, 0.89) 33.3%,
+      hsla(204, 14.29%, 6.86%, 0.819) 41.2%,
+      hsla(204, 14.29%, 6.86%, 0.736) 47.9%,
+      hsla(204, 14.29%, 6.86%, 0.645) 53.6%,
+      hsla(204, 14.29%, 6.86%, 0.549) 58.6%,
+      hsla(204, 14.29%, 6.86%, 0.451) 63.1%,
+      hsla(204, 14.29%, 6.86%, 0.355) 67.2%,
+      hsla(204, 14.29%, 6.86%, 0.264) 71.4%,
+      hsla(204, 14.29%, 6.86%, 0.181) 75.8%,
+      hsla(204, 14.29%, 6.86%, 0.11) 80.6%,
+      hsla(204, 14.29%, 6.86%, 0.054) 86.1%,
+      hsla(204, 14.29%, 6.86%, 0.016) 92.5%,
+      hsla(204, 14.29%, 6.86%, 0) 100%
+    );
+  }
+
+  .links-zone {
+    .link {
+      color: $dark-text-inactive;
+
+      &[data-active='true'] {
+        color: #fff;
+
+        &::before {
+          background: $dark-text-link-highlight;
+        }
       }
     }
   }

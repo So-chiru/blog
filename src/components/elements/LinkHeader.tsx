@@ -2,6 +2,7 @@ import '@/styles/header.scss'
 import { Link as GoLink } from 'react-router-dom'
 import { concatClass } from '@/utils/component'
 import { SearchBoxContainer } from './SearchBox'
+import { NightIconContainer } from './NightModeIcon'
 
 interface Link {
   name: string
@@ -42,8 +43,9 @@ export const LinkHeaderCompoenent = ({
             </GoLink>
           ))}
         </div>
-        <div className='search-zone'>
+        <div className='control-zone'>
           <SearchBoxContainer></SearchBoxContainer>
+          <NightIconContainer></NightIconContainer>
         </div>
       </div>
     </div>

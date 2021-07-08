@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import LoaderReducer from './loader/reducer'
+import UIReducer from './ui/reducer'
 import sagaMiddleware, { rootSaga } from './sagas'
 
 // 최상위 Reducer. 하위 Reducer들을 여기다 집어넣습니다.
@@ -11,7 +12,8 @@ import sagaMiddleware, { rootSaga } from './sagas'
 // 그 파일 안에서 action과 reducer 함수를 정의하는 방식으로 사용할 수 있습니다.
 const reducers = combineReducers({
   // 예시) main: MainReducer,
-  loader: LoaderReducer
+  loader: LoaderReducer,
+  ui: UIReducer
 })
 
 // 하위 컴포넌트에서 최상위 Reducer에서 추론된 타입을 이용할 수 있도록 RootState type을 지정합니다.
