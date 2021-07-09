@@ -20,18 +20,22 @@ $bar-height: 6px;
     bottom: 0;
     width: 100%;
     transform: translateX(calc(-100% + 100% * var(--progress, 0)));
+    -webkit-transform: translateX(calc(-100% + 100% * var(--progress, 0)));
     height: $bar-height;
     background: rgb(15, 145, 231);
 
-    &[data-state="4"] {
+    &[data-state='4'] {
       background: rgb(231, 22, 15);
     }
 
     transition: $quartic-transform;
+    -webkit-transition: $quartic-transform;
 
     &.hide {
       transition: $quartic-all-long;
       transform: translateX(calc(-100% + 100% * var(--progress, 0)))
+        translateY(#{$bar-height});
+      -webkit-transform: translateX(calc(-100% + 100% * var(--progress, 0)))
         translateY(#{$bar-height});
     }
   }

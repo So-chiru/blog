@@ -151,6 +151,7 @@ $link-color: #07a1e9;
     padding: 12px 24px;
     border-radius: 16px;
     transition: 0.23s background cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-transition: 0.23s background cubic-bezier(0.19, 1, 0.22, 1);
 
     .icon {
       display: flex;

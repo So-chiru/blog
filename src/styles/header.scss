@@ -78,6 +78,7 @@
     .control-zone {
       opacity: 1;
       transform: translateY(0px);
+      -webkit-transform: translateY(0px);
     }
   }
 
@@ -89,6 +90,7 @@
     .control-zone {
       opacity: 0;
       transform: translateY(-10px);
+      -webkit-transform: translateY(-10px);
     }
   }
 

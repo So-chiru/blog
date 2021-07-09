@@ -9,6 +9,11 @@ html {
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
     sans-serif;
   margin: 0;
+
+  transition: background 0.2s cubic-bezier(0.19, 1, 0.22, 1),
+    color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: background 0.2s cubic-bezier(0.19, 1, 0.22, 1),
+    color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 html[data-theme='night'] {
@@ -43,11 +48,13 @@ html[data-theme='night'] {
 .sochiru-page-enter {
   opacity: 0;
   transform: translateX(50px);
+  -webkit-transform: translateX(50px);
 }
 
 .sochiru-page-enter-active {
   opacity: 1;
   transform: translateX(0px);
+  -webkit-transform: translateX(0px);
 }
 
 .sochiru-page-exit-active,
@@ -59,8 +66,10 @@ html[data-theme='night'] {
 .sochiru-page-enter-active,
 .sochiru-page-exit-active {
   transition: opacity 200ms, transform 230ms cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: opacity 200ms, transform 230ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .sochiru-page-exit-active {
   transition: opacity 200ms, transform 230ms cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: opacity 200ms, transform 230ms cubic-bezier(0.19, 1, 0.22, 1);
 }
