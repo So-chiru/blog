@@ -31,3 +31,17 @@ export const getSystemTheme = (): ThemeState => {
 
   return ThemeState.Day
 }
+
+export const systemThemeUpdateHandler = (func: (night: boolean) => void) => {
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+
+  const listener = (ev: MediaQueryListEvent) => func(ev.matches)
+
+  systemDark.addEventListener('change', listener)
+
+  const delisten = () => {
+    systemDark.removeEventListener('change', listener)
+  }
+
+  return delisten
+}

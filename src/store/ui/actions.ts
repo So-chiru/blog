@@ -15,6 +15,12 @@ export const setTheme = (state: ThemeState): UIReducerAction => {
   }
 }
 
+export const setThemeSystem = (state: ThemeState): UIReducerAction => {
+  return {
+    type: '@sochiru/ui/setTheme',
+    data: state
+  }
+}
 export const setThemeMatchToSystem = (state: boolean): UIReducerAction => {
   return {
     type: '@sochiru/ui/setTheme',
