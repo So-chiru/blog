@@ -39,3 +39,28 @@ html[data-theme='night'] {
 .long-biography {
   width: 100%;
 }
+
+.sochiru-page-enter {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.sochiru-page-enter-active {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.sochiru-page-exit-active,
+.sochiru-page-exit {
+  display: none;
+  opacity: 0;
+}
+
+.sochiru-page-enter-active,
+.sochiru-page-exit-active {
+  transition: opacity 200ms, transform 230ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.sochiru-page-exit-active {
+  transition: opacity 200ms, transform 230ms cubic-bezier(0.19, 1, 0.22, 1);
+}

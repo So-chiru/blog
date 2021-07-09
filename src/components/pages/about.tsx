@@ -276,7 +276,7 @@ const AboutPage = () => {
     <div className={concatClass('page', 'about-page')}>
       <SiteMetadata title='Sochiru'></SiteMetadata>
       <SpacerComponent flex={true} template='about-header'>
-        <LinkHeader></LinkHeader>
+        <LinkHeader searchBox={false}></LinkHeader>
       </SpacerComponent>
       <SpacerComponent template='long-biography'>
         <LongBiography></LongBiography>

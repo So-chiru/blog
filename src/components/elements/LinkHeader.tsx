@@ -14,11 +14,16 @@ interface LinkHeaderCompoenentProps {
   fixed?: boolean
   show?: boolean
   links: Link[]
+  searchBox?: boolean
 }
+
+const SearchBox = <SearchBoxContainer></SearchBoxContainer>
+const NightIcon = <NightIconContainer></NightIconContainer>
 
 export const LinkHeaderCompoenent = ({
   fixed,
   show,
+  searchBox,
   links
 }: LinkHeaderCompoenentProps) => {
   return (
@@ -44,15 +49,23 @@ export const LinkHeaderCompoenent = ({
           ))}
         </div>
         <div className='control-zone'>
-          <SearchBoxContainer></SearchBoxContainer>
-          <NightIconContainer></NightIconContainer>
+          {typeof searchBox === 'undefined' || searchBox === true
+            ? SearchBox
+            : undefined}
+          {NightIcon}
         </div>
       </div>
     </div>
   )
 }
 
-export const LinkHeaderContainer = () => {
+interface LinkHeaderContainerProps {
+  searchBox?: boolean
+}
+
+export const LinkHeaderContainer = ({
+  searchBox
+}: LinkHeaderContainerProps) => {
   const links: Link[] = [
     { name: 'About', path: '/', active: true },
     {
@@ -66,5 +79,10 @@ export const LinkHeaderContainer = () => {
     return v
   })
 
-  return <LinkHeaderCompoenent links={links}></LinkHeaderCompoenent>
+  return (
+    <LinkHeaderCompoenent
+      links={links}
+      searchBox={searchBox}
+    ></LinkHeaderCompoenent>
+  )
 }
