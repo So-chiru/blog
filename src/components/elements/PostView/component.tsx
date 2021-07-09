@@ -1,4 +1,4 @@
-import { Block, RichText } from '@/lib/notion/api-types'
+import { Block, RichText } from '@notionhq/client/build/src/api-types'
 
 import '@/styles/post.scss'
 
@@ -131,7 +131,8 @@ export const PostViewComponent = ({ blocks }: PostViewComponentProps) => {
                           key={v.id + numberedItemIndex}
                           {...blockPropertyHandler(numberedItem)}
                         >
-                          <span className='index'>{numberedListIndex}.</span>{numberedItem.plain_text}
+                          <span className='index'>{numberedListIndex}.</span>
+                          {numberedItem.plain_text}
                         </div>
                       )
                     }

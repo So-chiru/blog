@@ -1,4 +1,4 @@
-import { Block } from '@/lib/notion/api-types'
+import { Block } from '@notionhq/client/build/src/api-types'
 
 type Color =
   | 'default'
