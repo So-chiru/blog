@@ -7,13 +7,15 @@ interface UITypes {
     mode: ThemeState
     matchToSystem: boolean
   }
+  searchOverlay: boolean
 }
 
 const UIDefault: UITypes = {
   theme: {
     mode: getThemeMode(),
     matchToSystem: isSystemMatch()
-  }
+  },
+  searchOverlay: false
 }
 
 const ThemeHandler = (state = UIDefault, action: UIReducerAction) => {
@@ -47,6 +49,10 @@ const LoaderReducer = (state = UIDefault, action: UIReducerAction): UITypes => {
   switch (action.type) {
     case '@sochiru/ui/setTheme':
       return ThemeHandler(state, action)
+    case '@sochiru/ui/openSearchOverlay':
+      return Object.assign({}, state, {
+        searchOverlay: action.data as boolean
+      })
     default:
       return state
   }

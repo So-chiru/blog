@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
 import { HeaderContainer as Header } from './elements/Header'
+import { SearchOverlayContainer as SearchOverlay } from './elements/SearchOverlay'
 import Loader from './loader/loader'
 import AboutPage from './pages/about'
 import BlogPage from './pages/blog'
@@ -16,6 +17,7 @@ const App = () => {
     <>
       <Header fixed={true} hideUntil={60} background={true}></Header>
       <Theme></Theme>
+      <SearchOverlay></SearchOverlay>
       <Route
         render={({ location }) => {
           return (

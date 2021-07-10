@@ -68,6 +68,19 @@
     }
   }
 
+  &[data-template='search-overlay-header'] {
+    & > * {
+      margin-top: 14vh;
+      margin-bottom: 60px;
+
+      @media screen and (max-width: $mobile-width) {
+        margin-top: 12vh;
+        margin-bottom: 6vh;
+      }
+    }
+  }
+
+
   & > * {
     margin: var(--h, auto) var(--w, auto);
   }

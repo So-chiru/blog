@@ -7,7 +7,6 @@ import { SpacerComponent } from '../elements/Spacer'
 import '@/styles/post.scss'
 import { PostViewContainer } from '../elements/PostView/container'
 import { ErrorComponent } from '../elements/Error'
-import { BlogPostWithBlocks } from '@/@types/posts'
 
 declare global {
   interface Window {

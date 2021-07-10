@@ -28,6 +28,14 @@ export const setThemeMatchToSystem = (state: boolean): UIReducerAction => {
   }
 }
 
+export const openSearchOverlay = (state: boolean): UIReducerAction => {
+  return {
+    type: '@sochiru/ui/openSearchOverlay',
+    data: state
+  }
+}
+
 export default {
-  setTheme
+  setTheme,
+  openSearchOverlay
 }

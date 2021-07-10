@@ -6,6 +6,19 @@
   height: 36px;
   border-radius: 16px;
 
+  position: relative;
+  cursor: zoom-in;
+
+  &.full {
+    width: 100%;
+    height: 36px;
+    cursor: unset;
+
+    input {
+      width: calc(100% - 62px);
+    }
+  }
+
   @media screen and (max-width: $mobile-width) {
     height: 32px;
 
@@ -19,6 +32,33 @@
   display: flex;
 
   color: $element-text;
+
+  input {
+    position: absolute;
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+
+    padding-left: 42px;
+    padding-right: 20px;
+    border: 0;
+    color: white;
+
+    background: transparent;
+  }
+
+  input:focus + .text,
+  input:not(:placeholder-shown) + .text {
+    opacity: 0;
+    transform: translateX(-21px);
+  }
+
+  input,
+  .text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    letter-spacing: -1px;
+  }
 
   .icon,
   .text {
@@ -34,11 +74,10 @@
   }
 
   .text {
-    font-family: 'Inter', sans-serif;
-
-    letter-spacing: -1px;
-    font-size: 16px;
     margin-right: 20px;
+
+    transition: 0.23s opacity cubic-bezier(0.19, 1, 0.22, 1),
+      0.23s transform cubic-bezier(0.19, 1, 0.22, 1);
 
     & > span {
       margin-top: auto;
