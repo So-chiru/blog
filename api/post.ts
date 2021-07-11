@@ -20,9 +20,11 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     }
 
     const data = await fetch(
-      process.env.NODE_ENV === 'production'
+      (process.env.NODE_ENV === 'production'
         ? 'https://blog-api.sochiru.pw'
-        : 'http://localhost:8383' + '/post?id=' + postId
+        : 'http://localhost:8383') +
+        '/post?id=' +
+        postId
     )
 
     const result = await data.json()
