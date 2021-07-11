@@ -6,7 +6,7 @@ import { validatePostID } from '../src/utils/parse'
 let indexFS = ''
 
 export default async (req: VercelRequest, res: VercelResponse) => {
-  const { postId } = req.query
+  let { postId } = req.query
 
   if (!indexFS) {
     indexFS = await (
@@ -15,7 +15,15 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   }
 
   try {
-    if (!postId || !validatePostID(postId.toString())) {
+    if (typeof postId !== 'string') {
+      throw new Error(
+        'postId 값이 올바르지 않습니다. (값이 여러 개, 혹은 주어지지 않음)'
+      )
+    }
+
+    postId = decodeURIComponent(postId)
+
+    if (!postId || !validatePostID(postId)) {
       throw new Error('올바르지 않은 URL 입니다.')
     }
 
@@ -31,6 +39,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     if (result.error) {
       throw new Error(result.error)
+    }
+
+    if (!result.title) {
+      throw new Error('서버에서 반환한 게시글이 올바르지 않습니다.')
     }
 
     let resultString = indexFS.toString().replace(
