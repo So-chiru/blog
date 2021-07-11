@@ -77,17 +77,18 @@ module.exports = (_, argv) => {
     optimization: {
       minimize: devMode,
       minimizer: devMode
-        ? [
+        ? []
+        : [
             new TerserPlugin({
               terserOptions: {
                 format: {
                   comments: false
                 }
               },
+              parallel: true,
               extractComments: false
             })
-          ]
-        : [],
+          ],
       splitChunks: {
         chunks: 'all'
       }
