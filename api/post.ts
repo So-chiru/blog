@@ -21,8 +21,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       )
     }
 
-    postId = decodeURIComponent(postId)
-
     if (!postId || !validatePostID(postId)) {
       throw new Error('올바르지 않은 URL 입니다.')
     }
@@ -32,7 +30,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         ? 'https://blog-api.sochiru.pw'
         : 'http://localhost:8383') +
         '/post?id=' +
-        postId
+        encodeURIComponent(postId)
     )
 
     const result = await data.json()
