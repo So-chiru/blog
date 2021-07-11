@@ -58,7 +58,10 @@ module.exports = (_, argv) => {
       }),
       new HtmlWebpackPlugin({
         template: './views/index.html',
-        filename: 'index.html'
+        filename: 'index.html',
+        minify: {
+          removeComments: false
+        }
       }),
       new DefinePlugin({
         API_SERVER: JSON.stringify(argv.env.API_SERVER)
