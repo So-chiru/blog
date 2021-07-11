@@ -47,6 +47,22 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       '<!-- SSR: SCRIPT -->',
       `
       <title>${result.title} - Sochiru Blog</title>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "${result.title}",
+        ${
+          result.background
+            ? `"image": [
+          "${result.background}",
+         ],`
+            : ''
+        }
+        "datePublished": "${result.created}",
+        "dateModified": "${result.edited}"
+      }
+      </script>  
       <meta property="og:title" content="${escape(result.title)}"></meta>
       <meta property="og:description" content="${escape(
         result.description
