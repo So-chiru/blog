@@ -55,7 +55,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         ${
           result.background
             ? `"image": [
-          "${result.background}",
+          "${result.background}"
          ],`
             : ''
         }
