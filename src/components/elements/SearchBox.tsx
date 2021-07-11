@@ -55,7 +55,6 @@ export const SearchBoxComponent = ({
       className={concatClass('search-box', full && 'full')}
       role={role ? role : input ? 'searchbox' : 'search'}
       aria-label={input ? '블로그 글 검색' : '블로그 글 검색 창 열기'}
-      tabIndex={0}
       onClick={() => onClick && onClick()}
       onKeyPress={ev => ev.key === 'Enter' && onClick && onClick()}
     >
