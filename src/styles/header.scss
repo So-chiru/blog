@@ -117,7 +117,8 @@
         margin-left: 10px;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         opacity: 0.8;
       }
 
@@ -129,6 +130,10 @@
 
         &:hover {
           opacity: 1;
+        }
+
+        &:focus {
+          opacity: 0.8;
         }
 
         &::before {

@@ -90,6 +90,32 @@ export const SearchOverlayComponent = ({
 }: SearchOverlayComponentProps) => {
   const history = useHistory()
 
+  useEffect(() => {
+    if (!show) {
+      return
+    }
+
+    const checkKeydown = (ev: KeyboardEvent) => {
+      if (ev.code !== 'Escape') {
+        return
+      }
+
+      const anyInputFocused = document.querySelectorAll('input:focus').length
+
+      if (anyInputFocused) {
+        return
+      }
+
+      close()
+    }
+
+    window.addEventListener('keydown', checkKeydown)
+
+    return () => {
+      window.removeEventListener('keydown', checkKeydown)
+    }
+  }, [show])
+
   const goPost = (id: string, title: string) => {
     history.push('/blog/' + textLinkify(title) + id.replace(/-/g, ''))
     close()

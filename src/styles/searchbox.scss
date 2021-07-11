@@ -42,9 +42,15 @@
     padding-left: 42px;
     padding-right: 20px;
     border: 0;
-    color: white;
 
+    color: #000;
     background: transparent;
+
+    outline: none;
+  }
+
+  input:focus ~ .icon {
+    color: rgb(0, 133, 241);
   }
 
   input:focus + .text,
@@ -90,5 +96,9 @@ html[data-theme='night'] {
   .search-box {
     background: $dark-element-background;
     color: $dark-element-text;
+
+    input {
+      color: $dark-element-text;
+    }
   }
 }

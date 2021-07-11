@@ -36,6 +36,8 @@ export const HeaderCompoenent = ({
         <div
           className='logo-zone'
           onClick={logoClick}
+          onKeyPress={ev => ev.key === 'Enter' && logoClick && logoClick()}
+          tabIndex={0}
           data-clickable={!!logoClick}
           aria-label={
             hideUntil
@@ -58,9 +60,7 @@ export const HeaderCompoenent = ({
             role='button'
             aria-label='블로그 게시글 검색'
           ></SearchBoxContainer>
-          <NightIconContainer
-            aria-label='테마 변경'
-          ></NightIconContainer>
+          <NightIconContainer aria-label='테마 변경'></NightIconContainer>
         </div>
       </div>
       {background && <div className='header-background'></div>}

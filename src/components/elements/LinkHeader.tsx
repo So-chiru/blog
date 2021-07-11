@@ -43,6 +43,7 @@ export const LinkHeaderCompoenent = ({
               key={link.name}
               data-active={link.active}
               aria-current={link.active ? 'page' : undefined}
+              tabIndex={0}
               className='link'
               to={link.path}
             >
