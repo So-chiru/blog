@@ -1,10 +1,13 @@
 import '@/styles/biography.scss'
-import { RiGithubFill, RiInstagramLine, RiAtLine } from 'react-icons/ri'
 import ProfileCloud from '../ProfileCloud'
 
 export const ShortBiography = () => {
   return (
-    <div className='short-biography'>
+    <div
+      className='short-biography'
+      role='group'
+      aria-label='프로필 정보'
+    >
       <div className='text'>
         <div className='text-wrapper'>
           <h1 className='title'>Sochiru</h1>

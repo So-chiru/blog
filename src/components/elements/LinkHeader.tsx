@@ -33,7 +33,7 @@ export const LinkHeaderCompoenent = ({
         fixed ? 'fixed' : 'static',
         typeof show === 'boolean' ? (show ? 'show' : 'hidden') : undefined
       )}
-      role='group'
+      role='menubar'
       aria-label='페이지 링크 헤더'
     >
       <div className='header-inner'>

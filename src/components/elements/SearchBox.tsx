@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 interface SearchBoxComponentProps {
   onClick?: () => void
   onChange?: (text: string) => void
+  role?: string
   inputFocus?: boolean
   full?: boolean
   input?: boolean
@@ -24,6 +25,7 @@ interface SearchBoxContainerWithInputProps {
 export const SearchBoxComponent = ({
   onClick,
   onChange,
+  role,
   inputFocus,
   full,
   input = false
@@ -51,8 +53,8 @@ export const SearchBoxComponent = ({
   return (
     <div
       className={concatClass('search-box', full && 'full')}
-      role={input ? 'group' : 'button'}
-      aria-label={input ? '' : ''}
+      role={role ? role : input ? 'searchbox' : 'search'}
+      aria-label={input ? '블로그 글 검색' : '블로그 글 검색 창 열기'}
       tabIndex={0}
       onClick={() => onClick && onClick()}
       onKeyPress={ev => ev.key === 'Enter' && onClick && onClick()}
@@ -62,9 +64,10 @@ export const SearchBoxComponent = ({
       </div>
       {input && (
         <input
-          type='text'
+          type='search'
           name='Search'
           ref={inputRef}
+          aria-label={'검색 할 내용을 입력하세요.'}
           autoFocus={true}
           placeholder=' '
           id='search-input'
@@ -110,12 +113,18 @@ export const SearchBoxContainerWithInput = ({
   )
 }
 
-export const SearchBoxContainer = () => {
+interface SearchBoxContainerProps {
+  role?: string
+}
+
+export const SearchBoxContainer = ({ role }: SearchBoxContainerProps) => {
   const dispatch = useDispatch()
 
   const openOverlay = () => {
     dispatch(openSearchOverlay(true))
   }
 
-  return <SearchBoxComponent onClick={openOverlay}></SearchBoxComponent>
+  return (
+    <SearchBoxComponent onClick={openOverlay} role={role}></SearchBoxComponent>
+  )
 }

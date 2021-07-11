@@ -28,7 +28,7 @@ export const HeaderCompoenent = ({
         typeof show === 'boolean' ? (show ? 'show' : 'hidden') : undefined,
         background && 'background'
       )}
-      role='navigation'
+      role='menubar'
       aria-label={'페이지 헤더'}
       aria-hidden={!show}
     >
@@ -54,8 +54,13 @@ export const HeaderCompoenent = ({
           ></ProfileCloud>
         </div>
         <div className='control-zone'>
-          <SearchBoxContainer></SearchBoxContainer>
-          <NightIconContainer></NightIconContainer>
+          <SearchBoxContainer
+            role='button'
+            aria-label='블로그 게시글 검색'
+          ></SearchBoxContainer>
+          <NightIconContainer
+            aria-label='테마 변경'
+          ></NightIconContainer>
         </div>
       </div>
       {background && <div className='header-background'></div>}
