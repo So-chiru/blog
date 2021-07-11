@@ -43,7 +43,9 @@ export const NightIconComponent = ({
       className='night-icon'
       role='button'
       tabIndex={0}
+      aria-label='Theme 전환'
       onClick={() => click()}
+      onKeyPress={ev => ev.key === 'Enter' && click()}
     >
       <div className='icon'>{themeIcon()}</div>
     </div>

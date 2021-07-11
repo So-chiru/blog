@@ -30,9 +30,11 @@ export const LinkHeaderCompoenent = ({
     <div
       className={concatClass(
         'page-header',
-        fixed && 'fixed',
+        fixed ? 'fixed' : 'static',
         typeof show === 'boolean' ? (show ? 'show' : 'hidden') : undefined
       )}
+      role='group'
+      aria-label='페이지 링크 헤더'
     >
       <div className='header-inner'>
         <div className='links-zone'>

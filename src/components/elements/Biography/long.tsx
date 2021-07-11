@@ -53,7 +53,7 @@ export const LongBiography = () => {
                 onClick={() => goLink(v.href)}
                 aria-label={v.id + ' link: ' + v.content.split('').join(' ')}
               >
-                <span className='icon'>{v.icon}</span>
+                <span className='icon' aria-hidden>{v.icon}</span>
                 <span className='text'>{v.content}</span>
               </div>
             ))}

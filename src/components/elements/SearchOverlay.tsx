@@ -40,6 +40,7 @@ const SearchOverlayResultComponent = ({
       className='search-result-item'
       onClick={() => click && click(post.id, post.title)}
       tabIndex={0}
+      role='link'
       aria-label={
         post.title +
         ' 게시글. ' +
@@ -95,22 +96,42 @@ export const SearchOverlayComponent = ({
   }
 
   return (
-    <div className={concatClass('search-overlay', show && 'show')}>
+    <div
+      className={concatClass('search-overlay', show && 'show')}
+      role='diglog'
+    >
       <div className='background' onClick={() => close && close()}></div>
       <div className='contents'>
+        <div
+          className='close-button'
+          role='button'
+          tabIndex={0}
+          aria-label='검색 창 닫기'
+          onClick={() => close && close()}
+          onKeyPress={ev => ev.code === 'Enter' && close && close()}
+        ></div>
         <SpacerComponent template='search-overlay-header'>
           <h1 className='search-overlay-title'>검색</h1>
         </SpacerComponent>
         <SpacerComponent>
           <SearchBoxContainerWithInput
             full={true}
+            inputFocus={show}
             debounce={300}
             onChange={change}
           ></SearchBoxContainerWithInput>
         </SpacerComponent>
-        {text && (
+        {load === APILoadState.Loaded && text && (
           <SpacerComponent h={32} flex={true}>
-            <div className='results'>
+            <div
+              className='results'
+              aria-label={
+                result && result.posts.length
+                  ? result.posts.length + '개의 게시글이 검색되었습니다.'
+                  : '검색된 게시글이 없습니다.'
+              }
+              aria-live={'assertive'}
+            >
               {result && result.posts.length ? (
                 result.posts.map((post, index) => (
                   <SearchOverlayResultComponent
@@ -126,6 +147,9 @@ export const SearchOverlayComponent = ({
                   mute='글에서 사용될만한 단어를 입력해보세요.'
                 ></ErrorTemplateComponent>
               )}
+              {(result && result.posts.length && (
+                <p className='muted'>총 {result.posts.length}개의 검색 결과</p>
+              )) || <></>}
             </div>
           </SpacerComponent>
         )}

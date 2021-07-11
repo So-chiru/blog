@@ -9,6 +9,7 @@ interface HeaderCompoenentProps {
   fixed?: boolean
   logoClick?: () => void
   show?: boolean
+  hideUntil?: number
   background?: boolean
 }
 
@@ -16,16 +17,19 @@ export const HeaderCompoenent = ({
   fixed,
   logoClick,
   show,
+  hideUntil,
   background
 }: HeaderCompoenentProps) => {
   return (
     <div
       className={concatClass(
         'page-header',
-        fixed && 'fixed',
+        fixed ? 'fixed' : 'static',
         typeof show === 'boolean' ? (show ? 'show' : 'hidden') : undefined,
         background && 'background'
       )}
+      role='navigation'
+      aria-label={'페이지 헤더'}
       aria-hidden={!show}
     >
       <div className='header-inner'>
@@ -33,6 +37,12 @@ export const HeaderCompoenent = ({
           className='logo-zone'
           onClick={logoClick}
           data-clickable={!!logoClick}
+          aria-label={
+            hideUntil
+              ? '페이지 맨 위로 이동'
+              : '블로그 게시글 목록으로 돌아가기'
+          }
+          role={hideUntil ? 'button' : 'link'}
         >
           <ProfileCloud
             hide={false}
@@ -80,6 +90,14 @@ export const HeaderContainer = ({
         top: 0,
         behavior: 'smooth'
       })
+
+      const existHeader = document.querySelector(
+        '.page-header.static'
+      ) as HTMLElement | null
+
+      if (existHeader) {
+        existHeader.focus()
+      }
     }
   }
 
@@ -111,6 +129,7 @@ export const HeaderContainer = ({
       fixed={fixed}
       logoClick={logoClick}
       show={scrollShow}
+      hideUntil={hideUntil}
       background={background}
     ></HeaderCompoenent>
   )

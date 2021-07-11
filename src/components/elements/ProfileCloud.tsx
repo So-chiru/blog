@@ -34,6 +34,9 @@ const ProfileCloud = ({
           small && 'small',
           big && 'big'
         )}
+        aria-label={(small ? '작은 ' : big ? '큰 ' : '') + '프로필 이미지'}
+        aria-hidden={hide}
+        role='img'
         viewBox='0 0 742 437'
         data-state={state}
         fill='none'

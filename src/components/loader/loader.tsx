@@ -98,7 +98,7 @@ const Loader = () => {
   const hide = loader.state === LoaderState.Ready
 
   return (
-    <div className='cloud-loader'>
+    <div className='cloud-loader' data-hide={hide}>
       <ProfileCloud
         state={loader.state}
         hide={hide}

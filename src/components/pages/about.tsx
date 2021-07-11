@@ -252,6 +252,7 @@ const Projects = () => {
           className='repository-button'
           tabIndex={0}
           role='button'
+          aria-label='View more from my GitHub'
           onClick={() =>
             move && move('https://github.com/So-chiru?tab=repositories')
           }
