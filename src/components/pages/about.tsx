@@ -108,20 +108,9 @@ const AboutMe = () => {
         </h1>
       </div>
       <div className='section'>
-        <h3 className='summary-title'>개발 의뢰도 받으시나요?</h3>
-        <h1 className='title'>
-          네, 받고 있습니다. 위에 적힌 이메일로 의뢰하실 내용을 간략히 넣어
-          보내주세요.
-        </h1>
-      </div>
-      <div className='section'>
-        <h3 className='summary-title'>그래서 누구에요</h3>
-        <h1 className='title'>개발하는 한국 사람이에요</h1>
-      </div>
-      <div className='section'>
         <h3 className='summary-title'>무슨 노래 즐겨 들어요?</h3>
         <h1 className='title'>
-          DAY6, Yorushika, RADWIMPS... 그리고 밴드 스타일 가요 몇 개?
+          DAY6, Yorushika, RADWIMPS... 그리고 가요 몇 개? 주로 밴드 스타일 노래를 듣는 것 같아요.
         </h1>
       </div>
       <div className='section'>
@@ -139,10 +128,6 @@ const AboutMe = () => {
             </a>
           }
         </h1>
-      </div>
-      <div className='section'>
-        <h3 className='summary-title'>MBTI는 뭐에요?</h3>
-        <h1 className='title'>INFJ.</h1>
       </div>
       <div className='section'>
         <h3 className='summary-title'>Q: 안물안궁</h3>
