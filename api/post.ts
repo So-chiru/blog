@@ -6,7 +6,7 @@ import { validatePostID } from '../src/utils/parse'
 let indexFS = ''
 
 export default async (req: VercelRequest, res: VercelResponse) => {
-  let { postId } = req.query
+  const { postId } = req.query
 
   if (!indexFS) {
     indexFS = await (
