@@ -58,6 +58,79 @@
     font-size: 14px;
   }
 
+  [data-color='gray'] {
+    color: grey;
+  }
+
+  [data-color='brown'] {
+    color: brown;
+  }
+
+  [data-color='orange'] {
+    color: orange;
+  }
+
+  [data-color='yellow'] {
+    color: yellow;
+  }
+
+  [data-color='green'] {
+    color: green;
+  }
+
+  [data-color='blue'] {
+    color: blue;
+  }
+
+  [data-color='purple'] {
+    color: purple;
+  }
+
+  [data-color='pink'] {
+    color: pink;
+  }
+
+  [data-color='red'] {
+    color: red;
+  }
+
+
+  [data-color='gray_background'] {
+    background: grey;
+  }
+
+  [data-color='brown_background'] {
+    background: brown;
+  }
+
+  [data-color='orange_background'] {
+    background: orange;
+  }
+
+  [data-color='yellow_background'] {
+    background: yellow;
+  }
+
+  [data-color='green_background'] {
+    background: green;
+  }
+
+  [data-color='blue_background'] {
+    background: blue;
+  }
+
+  [data-color='purple_background'] {
+    background: purple;
+  }
+
+  [data-color='pink_background'] {
+    background: pink;
+  }
+
+  [data-color='red_background'] {
+    background: red;
+  }
+
   @media screen and (max-width: $mobile-width) {
     h1 {
       font-size: 6.5vmin;
@@ -91,6 +164,54 @@
   .numbered-list-item {
     margin-bottom: 4px;
     margin-left: 8px;
+  }
+
+  .post-image,
+  .post-video {
+    max-width: 100%;
+    position: relative;
+
+    img,
+    video {
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  .post-youtube-video {
+    width: 100%;
+    position: relative;
+
+    aspect-ratio: 16 / 9;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  .toggle {
+    & > input {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    & > label::before {
+      content: '> ';
+    }
+
+    & > input:checked + label::before {
+      content: '- ';
+    }
+
+    & > input:checked ~ .toggle-contents {
+      display: block;
+    }
+
+    .toggle-contents {
+      display: none;
+    }
   }
 
   .index {

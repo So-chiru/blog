@@ -96,7 +96,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         '<!-- SSR: SCRIPT -->',
         `<script>
           window.sochiruBlogPrefetch = {
-            error: "${escape(e.message)}"
+            error: "${escape((e as Error).message)}"
           }
     </script>`
       )
