@@ -68,7 +68,7 @@ const handleEmbedTypes = (embed: EmbedBlock) => {
 const handleVideoTypes = (video: VideoBlock) => {
   if (video.video.type === 'file') {
     return (
-      <video src={video.video.file.url} controls autoPlay muted loop></video>
+      <video src={video.video.file.url} controls autoPlay muted loop playsInline></video>
     )
   }
 

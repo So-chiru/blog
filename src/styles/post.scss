@@ -94,7 +94,6 @@
     color: red;
   }
 
-
   [data-color='gray_background'] {
     background: grey;
   }
@@ -167,12 +166,14 @@
   }
 
   .post-image,
-  .post-video {
+  .post-video,
+  .post-embed {
     max-width: 100%;
     position: relative;
 
     img,
-    video {
+    video,
+    embed {
       width: 100%;
       position: relative;
     }
