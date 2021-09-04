@@ -11,7 +11,7 @@ const BlogPage = () => {
       <SiteMetadata
         title={'Sochiru Blog'}
         description={
-          'Full-Stack Developer (yet), CS Student. Interested in design.'
+          'make somewhat unorthodox things'
         }
         type='profile'
       ></SiteMetadata>

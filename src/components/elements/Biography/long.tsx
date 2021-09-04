@@ -38,7 +38,7 @@ export const LongBiography = () => {
         <div className='text-wrapper'>
           <h1 className='title'>Sochiru</h1>
           <p className='description'>
-            Full-Stack Developer (yet), CS Student. Interested in design.
+            make somewhat unorthodox things
           </p>
           <div
             className='contact-links'
