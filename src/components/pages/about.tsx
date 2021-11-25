@@ -24,43 +24,43 @@ const AboutMe = () => {
     {
       name: 'DAY6 (Even of Day) - 뚫고 지나가요',
       link: 'https://youtu.be/N2p__-LRBNc',
-      color: '#4c8561'
+      color: '#4c8561',
     },
     {
       name: 'DAY6 (Even of Day) - 우린',
       link: 'https://youtu.be/tqyrl2V1kTM',
-      color: '#4c8561'
+      color: '#4c8561',
     },
     {
       name: 'ヨルシカ (Yorushika) - 又三郎 (Matasaburo)',
       link: 'https://youtu.be/x8xxFKVkNpw',
-      color: '#81c6e6'
+      color: '#81c6e6',
     },
     {
       name: 'ヨルシカ (Yorushika) - 雨とカプチーノ (Rain with Cappuccino)',
       link: 'https://youtu.be/PWbRleMGagU',
-      color: '#ebeb65'
+      color: '#ebeb65',
     },
     {
       name: 'ラックライフ (Luck Life) - 名前を呼ぶよ',
       link: 'https://youtu.be/-g6MYL5lOZs',
-      color: '#9c9c9c'
+      color: '#9c9c9c',
     },
     {
       name: 'BTS - Stay Gold',
       link: 'https://youtu.be/9IHwqdz8Xhw',
-      color: '#f0c45d'
+      color: '#f0c45d',
     },
     {
       name: '달의하루 - 염라',
       link: 'https://youtu.be/jv543Nk5s18',
-      color: '#e06e72'
+      color: '#e06e72',
     },
     {
       name: 'IU - 자장가',
       link: 'https://youtu.be/aepREwo5Lio',
-      color: '#cbd1c2'
-    }
+      color: '#cbd1c2',
+    },
   ])
 
   return (
@@ -79,20 +79,20 @@ const AboutMe = () => {
           {[
             {
               name: 'TypeScript (+ JavaScript)',
-              color: '#007acc'
+              color: '#007acc',
             },
             {
               name: 'Golang',
-              color: '#29BEB0'
+              color: '#29BEB0',
             },
             {
               name: 'Rust',
-              color: '#d95d1b'
+              color: '#d95d1b',
             },
             {
               name: 'Lua',
-              color: '#00007D'
-            }
+              color: '#00007D',
+            },
           ].map(item => (
             <span key={item.name}>
               <span
@@ -110,7 +110,8 @@ const AboutMe = () => {
       <div className='section'>
         <h3 className='summary-title'>무슨 노래 즐겨 들어요?</h3>
         <h1 className='title'>
-          DAY6, Yorushika, RADWIMPS... 그리고 가요 몇 개? 주로 밴드 스타일 노래를 듣는 것 같아요.
+          DAY6, Yorushika, RADWIMPS... 그리고 가요 몇 개? 주로 밴드 스타일
+          노래를 듣는 것 같아요.
         </h1>
       </div>
       <div className='section'>
@@ -152,37 +153,60 @@ const Careers = () => {
 
 const ProjectListData = [
   {
-    name: 'zechCore',
-    description: 'A peer-to-peer Live Streaming framework using WebRTC.',
-    language: {
-      color: '#f0db4f',
-      text: 'JavaScript'
-    },
+    name: 'WeSub',
+    description: '커뮤니티 기반 다국어 자막 플랫폼 (WIP)',
+    languages: [
+      {
+        color: '#007acc',
+        text: 'TypeScript',
+      },
+    ],
     links: [
       {
-        text: 'View Github Repository',
-        url: 'https://github.com/So-chiru/zechCore'
-      }
-    ]
+        text: 'Goto Homepage',
+        url: 'https://wesub.io',
+      },
+    ],
+  },{
+    name: 'kiosk',
+    description: '키오스크 서비스 모의 제작 프로젝트.',
+    languages: [
+      {
+        color: '#007acc',
+        text: 'TypeScript',
+      },
+    ],
+    links: [
+      {
+        text: 'View Github Repository (FE)',
+        url: 'https://github.com/So-chiru/kiosk-desk',
+      },
+      {
+        text: 'View Github Repository (BE)',
+        url: 'https://github.com/So-chiru/kiosk-server',
+      },
+    ],
   },
   {
     name: 'llct',
     description: 'front of lovelivec.kr, LoveLive Call Table',
-    language: {
-      color: '#007acc',
-      text: 'TypeScript'
-    },
+    languages: [
+      {
+        color: '#007acc',
+        text: 'TypeScript (FE)',
+      },
+      {
+        color: '#29beb0',
+        text: 'Go (BE)',
+      },
+    ],
     links: [
       {
         text: 'View Github Repository',
-        url: 'https://github.com/So-chiru/llct'
+        url: 'https://github.com/So-chiru/llct',
       },
-      {
-        text: 'Goto Homepage',
-        url: 'https://lovelivec.kr'
-      }
-    ]
-  }
+    ],
+  },
 ]
 
 const Projects = () => {
@@ -203,21 +227,24 @@ const Projects = () => {
               ' project: ' +
               item.description +
               '. written in ' +
-              item.language.text
+              item.languages.join(', ')
             }
           >
             <div className='metadata'>
               <h3 className='title'>{item.name}</h3>
               <p className='description'>{item.description}</p>
               <p className='tags'>
-                <span
-                  className='language'
-                  style={{
-                    ['--color' as string]: item.language.color
-                  }}
-                >
-                  {item.language.text}
-                </span>
+                {item.languages.map(v => (
+                  <span
+                    className='language'
+                    key={item.name + v.text}
+                    style={{
+                      ['--color' as string]: v.color,
+                    }}
+                  >
+                    {v.text}
+                  </span>
+                ))}
               </p>
             </div>
             <div className='links'>
@@ -267,11 +294,11 @@ const AboutPage = () => {
       <SpacerComponent template='long-biography'>
         <LongBiography></LongBiography>
       </SpacerComponent>
-      <SpacerComponent template='about-section'>
+      {/* <SpacerComponent template='about-section'>
         <AboutSectionContainer name='Careers'>
           <Careers></Careers>
         </AboutSectionContainer>
-      </SpacerComponent>
+      </SpacerComponent> */}
       <SpacerComponent template='about-section'>
         <AboutSectionContainer name='Projects'>
           <Projects></Projects>

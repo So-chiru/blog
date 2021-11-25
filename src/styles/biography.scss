@@ -82,7 +82,6 @@ $profile-background-gradient: linear-gradient(
 
 .short-biography {
   .text-wrapper {
-    margin-top: -5px;
     margin-left: 0;
   }
 }
@@ -93,6 +92,7 @@ $profile-background-gradient: linear-gradient(
     background: $profile-background-gradient;
 
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
