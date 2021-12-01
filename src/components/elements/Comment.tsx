@@ -27,7 +27,7 @@ export const CommentComponent = ({ theme }: CommentComponentProps) => {
     script.dataset.mapping = 'pathname'
     script.dataset.reactionsEnabled = '1'
     script.dataset.emitMetadata = '1'
-    script.dataset.theme = theme || 'github-light'
+    script.dataset.theme = theme || 'preferred_color_scheme'
 
     ref.current.appendChild(script)
 
@@ -46,10 +46,10 @@ export const CommentComponent = ({ theme }: CommentComponentProps) => {
 export const CommentContainer = () => {
   const theme = useSelector((state: RootState) => state.ui.theme.mode)
 
-  let themeString = 'github-light'
+  let themeString = 'light'
 
   if (theme === ThemeState.Night) {
-    themeString = 'github-dark'
+    themeString = 'dark'
   }
 
   return <CommentComponent theme={themeString}></CommentComponent>
