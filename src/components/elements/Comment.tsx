@@ -16,18 +16,23 @@ export const CommentComponent = ({ theme }: CommentComponentProps) => {
     }
 
     const script = document.createElement('script')
-    script.src = 'https://utteranc.es/client.js'
+    script.src = 'https://giscus.app/client.js'
     script.crossOrigin = 'anonymous'
     script.async = true
 
-    script.setAttribute('repo', 'So-chiru/blog-comments')
-    script.setAttribute('issue-term', 'url')
-    script.setAttribute('theme', theme || 'github-light')
+    script.dataset.repo = 'So-chiru/blog-comments'
+    script.dataset.repoId = 'MDEwOlJlcG9zaXRvcnkzODA1MTM1OTg='
+    script.dataset.category = '블로그 댓글'
+    script.dataset.categoryId = 'DIC_kwDOFq4tPs4CAGkl'
+    script.dataset.mapping = 'pathname'
+    script.dataset.reactionsEnabled = '1'
+    script.dataset.emitMetadata = '1'
+    script.dataset.theme = theme || 'github-light'
 
     ref.current.appendChild(script)
 
     return () => {
-      const app = document.querySelector('.utterances')
+      const app = document.querySelector('.giscus')
 
       if (app) {
         app.parentElement!.removeChild(app)
